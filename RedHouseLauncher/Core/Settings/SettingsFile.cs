@@ -1,11 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace RedHouseLauncher.Core.Settings
 {
@@ -29,20 +24,11 @@ namespace RedHouseLauncher.Core.Settings
             MasterServer = masterServer;
         }
 
-        [JsonProperty("userId")]
-        internal int UserId { get; set; }
-
-        [JsonProperty("userToken")]
-        internal string? UserToken { get; set; }
-
-        [JsonProperty("userName")]
-        internal string? UserName { get; set; }
-
-        [JsonProperty("pathToSkyrim")]
-        internal string? PathToSkyrim { get; set; }
-
-        [JsonProperty("masterServer")]
-        internal string MasterServer { get; set; }
+        [JsonProperty("userId")] internal int UserId { get; set; }
+        [JsonProperty("userToken")] internal string? UserToken { get; set; }
+        [JsonProperty("userName")] internal string? UserName { get; set; }
+        [JsonProperty("pathToSkyrim")] internal string? PathToSkyrim { get; set; }
+        [JsonProperty("masterServer")] internal string MasterServer { get; set; }
 
         internal static async Task<SettingsFile?> Load()
         {

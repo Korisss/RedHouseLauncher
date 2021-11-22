@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.Settings
@@ -31,9 +28,15 @@ namespace RedHouseLauncher.Core.Settings
         {
             SettingsFile? settingsFile = await SettingsFile.Load();
 
-            if (settingsFile == null) throw new Exception("Неожиданная ошибка при загрузке настроек.");
+            if (settingsFile == null)
+            {
+                throw new Exception("Неожиданная ошибка при загрузке настроек.");
+            }
 
-            if (settingsFile.PathToSkyrim == null) return;
+            if (settingsFile.PathToSkyrim == null)
+            {
+                return;
+            }
 
             UserId = settingsFile.UserId;
             UserToken = settingsFile.UserToken;

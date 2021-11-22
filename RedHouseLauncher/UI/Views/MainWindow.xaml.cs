@@ -15,7 +15,7 @@ namespace RedHouseLauncher.UI.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(Settings.PathToSkyrim);
+
         }
     }
 }
