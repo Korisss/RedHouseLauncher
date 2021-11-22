@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="RedHouseLauncher.UI.Images.Icons.FavoriteIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="18" d:DesignWidth="18">
+    <Grid Width="18" Height="18">
+        <Rectangle Width="15" Height="15">
+            <Rectangle.Fill>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V18 H18 V0 H0 Z">
+                            <GeometryDrawing Geometry="F1 M18,18z M0,0z M9,1.5L11.3175,6.195 16.5,6.9525 12.75,10.605 13.635,15.765 9,13.3275 4.365,15.765 5.25,10.605 1.5,6.9525 6.6825,6.195 9,1.5z">
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="#FF8C8C8C" Thickness="1.3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="RedHouseLauncher.UI.Views.Components.ModsListViewItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:icons="clr-namespace:RedHouseLauncher.UI.Images.Icons"
+             mc:Ignorable="d"
+             d:DesignHeight="61" d:DesignWidth="594">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <icons:TrashIcon x:Key="TrashIcon"/>
+            <icons:ModsTabIcon x:Key="InstallIcon"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Height="61" Width="594">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#2D2D2D" Grid.Row="0" CornerRadius="10">
+            <Grid>
+                <UserControl Width="16" Height="16" Margin="15,15,563,15">
+                    <UserControl.Style>
+                        <Style TargetType="{x:Type UserControl}">
+                            <Setter Property="Content" Value="{StaticResource InstallIcon}"/>
+
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsInstalled}" Value="True">
+                                    <Setter Property="Content" Value="{StaticResource TrashIcon}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </UserControl.Style>
+                </UserControl>
+
+                <!--
+                <icons:ModsTabIcon x:Name="ModsIcon" Width="16" Height="16" Margin="15,15,563,15" MouseUp="DownloadMod"/>
+                <icons:TrashIcon x:Name="TrashIcon" Visibility="Hidden" Width="16" Height="16" Margin="15,15,563,15"/>
+                -->
+
+                <!-- Название -->
+                <TextBlock Grid.Row="0" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0" Width="540" Margin="44,14,0,0"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

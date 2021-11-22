@@ -7,12 +7,34 @@
     <UseWPF>true</UseWPF>
     <StartupObject>RedHouseLauncher.Program</StartupObject>
     <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>LauncherIcon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UI\Fonts\Gilroy-Medium.ttf" />
+    <None Remove="UI\Images\Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="LauncherIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UI\Fonts\Gilroy-Medium.ttf" />
+    <Resource Include="UI\Images\Background.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Crc32.NET" Version="1.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SharpCompress" Version="0.30.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LauncherIcon.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

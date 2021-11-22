@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="RedHouseLauncher.UI.Images.Icons.ModsTabIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="20">
+    <Grid Background="Transparent" MouseEnter="AddHighlightModsIcon" MouseLeave="RemoveHighlightModsIcon" Cursor="Hand">
+        <Viewbox Stretch="Uniform">
+            <Canvas Height="20" Width="20">
+                <Path x:Name="Path1" Data="M9.79086 15.1535C9.83828 15.2224 9.91674 15.2637 10.0004 15.2637C10.0841 15.2637 10.1626 15.2224 10.21 15.1535L14.8605 8.39328C14.9139 8.31544 14.9198 8.2144 14.8759 8.13082C14.8319 8.04727 14.7453 7.9949 14.6509 7.9949H11.8139V3.06369C11.8139 2.06366 11.0003 1.25 10.0004 1.25C9.00054 1.25 8.18688 2.06366 8.18688 3.06369V7.9949H5.34989C5.25554 7.9949 5.16888 8.04727 5.12494 8.13082C5.081 8.2144 5.08695 8.31544 5.14035 8.39328L9.79086 15.1535Z" Fill="#8C8C8C" />
+                <Path x:Name="Path2" Data="M16.0129 16.008H3.98765C3.8471 16.008 3.7334 16.1219 3.7334 16.2623V18.4957C3.7334 18.6361 3.8471 18.75 3.98765 18.75H16.0129C16.1535 18.75 16.2672 18.6361 16.2672 18.4957V16.2623C16.2672 16.1219 16.1535 16.008 16.0129 16.008Z" Fill="#8C8C8C" />
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>

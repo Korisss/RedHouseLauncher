@@ -44,7 +44,7 @@ namespace RedHouseLauncher.Core.Settings
 
         internal static async Task<SkyMPSettings?> Load()
         {
-            string path = Paths.SkyMPSettingsFilePath;
+            string path = Paths.SkyMPSettingsFilePath();
 
             if (!File.Exists(path))
             {
@@ -63,11 +63,11 @@ namespace RedHouseLauncher.Core.Settings
             return deserializedSettings;
         }
 
-        internal void Save()
+        internal async Task Save()
         {
             string serializedSettings = JsonConvert.SerializeObject(this);
 
-            File.WriteAllTextAsync(Paths.SkyMPSettingsFilePath, serializedSettings);
+            await File.WriteAllTextAsync(Paths.SkyMPSettingsFilePath(), serializedSettings);
         }
     }
 }

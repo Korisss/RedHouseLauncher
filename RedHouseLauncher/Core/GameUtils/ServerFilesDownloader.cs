@@ -23,7 +23,10 @@ namespace RedHouseLauncher.Core.GameUtils
         {
             ServerManifest? serverManifest = await ServerManifest.Load(address);
 
-            if (serverManifest == null) throw new Exception("Получен пустой манифест сервера.");
+            if (serverManifest == null)
+            {
+                throw new Exception("Получен пустой манифест сервера.");
+            }
 
             ServerManifestMod[] mods = serverManifest.Mods;
 
@@ -33,7 +36,10 @@ namespace RedHouseLauncher.Core.GameUtils
 
                 if (!File.Exists(modPath))
                 {
-                    if (mod.Filename == null) throw new Exception("Пустое название мода на сервере");
+                    if (mod.Filename == null)
+                    {
+                        throw new Exception("Пустое название мода на сервере");
+                    }
 
                     await progressbar.DownloadFile($"{address}{mod.Filename}", $"{Settings.Settings.PathToSkyrim}Data\\{mod.Filename}", mod.Filename);
                 }
@@ -49,7 +55,10 @@ namespace RedHouseLauncher.Core.GameUtils
 
                     if (mod.Crc32 != modCrc32)
                     {
-                        if (mod.Filename == null) throw new Exception("Пустое название мода на сервере");
+                        if (mod.Filename == null)
+                        {
+                            throw new Exception("Пустое название мода на сервере");
+                        }
 
                         await progressbar.DownloadFile($"{address}{mod.Filename}", $"{Settings.Settings.PathToSkyrim}Data\\{mod.Filename}", mod.Filename);
                     }

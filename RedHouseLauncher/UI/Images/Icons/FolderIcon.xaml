@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="RedHouseLauncher.UI.Images.Icons.FolderIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16">
+    <Grid Width="16" Height="16" MouseEnter="AddHighlight" MouseLeave="RemoveHighlight" Background="Transparent" Cursor="Hand">
+        <Viewbox Width="16" Height="16">
+            <Canvas Height="16" Width="16">
+                <Path x:Name="Path1" Data="M12.6133 2.6791H4.36053C4.10487 2.6791 3.89762 2.47185 3.89762 2.2162V1.98457C3.89762 1.72392 3.68631 1.5126 3.42566 1.5126H0.943937C0.422625 1.5126 0 1.9352 0 2.45654V10.3991L1.21116 4.50673C1.25541 4.29148 1.44484 4.13701 1.66459 4.13701H13.5572V3.62304C13.5572 3.1017 13.1346 2.6791 12.6133 2.6791Z" Fill="#8C8C8C" />
+                <Path x:Name="Path2" Data="M15.0561 5.06282H2.04217L0.220701 13.9243C0.160951 14.215 0.383013 14.4874 0.679857 14.4874H14.2223C14.7034 14.4874 15.1076 14.1255 15.1605 13.6473L15.9943 6.11057C16.0561 5.55154 15.6185 5.06282 15.0561 5.06282Z" Fill="#8C8C8C" />
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</UserControl>

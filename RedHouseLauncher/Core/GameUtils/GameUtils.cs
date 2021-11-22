@@ -21,10 +21,11 @@ namespace RedHouseLauncher.Core.GameUtils
 
             window.Hide();
 
-            ProcessStartInfo startInfo = new(Paths.SkyrimExePath)
+            ProcessStartInfo startInfo = new()
             {
                 CreateNoWindow = false,
                 UseShellExecute = false,
+                FileName = Paths.SkyrimExePath(),
                 WorkingDirectory = Settings.Settings.PathToSkyrim
             };
 

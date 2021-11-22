@@ -19,10 +19,11 @@ namespace RedHouseLauncher.Core
         {
             HttpClient httpClient = new();
             httpClient.Timeout = TimeSpan.FromSeconds(5);
+            httpClient.BaseAddress = new Uri(url);
 
             if (auth)
             {
-                // httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Settings.Token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", Settings.Settings.UserToken);
             }
 
             if (method == "GET")
@@ -75,10 +76,11 @@ namespace RedHouseLauncher.Core
         {
             HttpClient httpClient = new();
             httpClient.Timeout = TimeSpan.FromSeconds(5);
+            httpClient.BaseAddress = new Uri(url);
 
             if (auth)
             {
-                // httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Settings.Token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", Settings.Settings.UserToken);
             }
 
             if (method == "GET")

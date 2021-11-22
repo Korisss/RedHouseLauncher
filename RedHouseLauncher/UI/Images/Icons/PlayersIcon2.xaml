@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="RedHouseLauncher.UI.Images.Icons.PlayersIcon2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="14" d:DesignWidth="14">
+    <Rectangle Width="14" Height="14">
+        <Rectangle.Fill>
+            <DrawingBrush>
+                <DrawingBrush.Drawing>
+                    <DrawingGroup ClipGeometry="M0,0 V14 H14 V0 H0 Z">
+                        <DrawingGroup Opacity="1">
+                            <DrawingGroup.ClipGeometry>
+                                <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,14,14" />
+                            </DrawingGroup.ClipGeometry>
+                            <GeometryDrawing Brush="#FF8C8C8C" Geometry="F1 M14,14z M0,0z M7.00095,3.05176E-05C5.00094,3.05176E-05 3.36603,1.63494 3.36603,3.63496 3.36603,5.63497 5.00094,7.26988 7.00095,7.26988 9.00096,7.26988 10.6359,5.63497 10.6359,3.63496 10.6359,1.63494 9.00096,3.05176E-05 7.00095,3.05176E-05z" />
+                            <GeometryDrawing Brush="#FF8C8C8C" Geometry="F1 M14,14z M0,0z M13.2391,10.1746C13.1438,9.9365 13.0169,9.71429 12.874,9.50793 12.1438,8.42856 11.0169,7.71428 9.74703,7.53967 9.58832,7.52381 9.41371,7.55553 9.28672,7.65078 8.62005,8.14285 7.82641,8.39681 7.00099,8.39681 6.17558,8.39681 5.38194,8.14285 4.71527,7.65078 4.58827,7.55553 4.41367,7.50792 4.25495,7.53967 2.98511,7.71428 1.84226,8.42856 1.12798,9.50793 0.985125,9.71429 0.858128,9.95239 0.762911,10.1746 0.715303,10.2699 0.731162,10.381 0.77877,10.4762 0.905767,10.6984 1.06448,10.9207 1.20734,11.1111 1.42955,11.4127 1.66765,11.6825 1.93751,11.9365 2.15972,12.1587 2.41368,12.3651 2.66768,12.5714 3.92163,13.508 5.42958,14 6.98513,14 8.54069,14 10.0486,13.5079 11.3026,12.5714 11.5566,12.381 11.8105,12.1587 12.0328,11.9365 12.2867,11.6825 12.5407,11.4127 12.7629,11.1111 12.9216,10.9048 13.0645,10.6984 13.1915,10.4762 13.2708,10.381 13.2867,10.2698 13.2391,10.1746z" />
+                        </DrawingGroup>
+                    </DrawingGroup>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
+        </Rectangle.Fill>
+    </Rectangle>
+</UserControl>
