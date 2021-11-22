@@ -1,5 +1,4 @@
-﻿using RedHouseLauncher.Core.Settings;
-using System.Windows;
+﻿using System.Windows;
 
 namespace RedHouseLauncher.UI.Views
 {

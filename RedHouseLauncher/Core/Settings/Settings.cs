@@ -1,42 +1,69 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.Settings
 {
     internal class Settings
     {
-        private static string _pathToSkyrim = "";
+        private static string? _pathToSkyrim = null;
 
-        private static string _masterServer = "";
+        private static string? _masterServer = null;
         internal static int UserId { get; set; }
         internal static string? UserToken { get; set; }
         internal static string? UserName { get; set; }
 
-        internal static string PathToSkyrim
+        internal static string? PathToSkyrim
         {
-            get => _pathToSkyrim.EndsWith("\\") ? _pathToSkyrim : $"{_pathToSkyrim}\\";
-            set => _pathToSkyrim = value.EndsWith("\\") ? value : $"{value}\\";
+            get
+            {
+                if (_pathToSkyrim == null)
+                {
+                    return null;
+                }
+
+                return _pathToSkyrim.EndsWith("\\") ? _pathToSkyrim : $"{_pathToSkyrim}\\";
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    _pathToSkyrim = null;
+                }
+                else
+                {
+                    _pathToSkyrim = value.EndsWith("\\") ? value : $"{value}\\";
+                }
+            }
         }
 
-        internal static string MasterServer
+        internal static string? MasterServer
         {
-            get => _masterServer.EndsWith("/") ? _masterServer : $"{_masterServer}/";
-            set => _masterServer = value.EndsWith("/") ? value : $"{value}/";
+            get
+            {
+                if (_masterServer == null)
+                {
+                    return null;
+                }
+
+                return _masterServer.EndsWith("/") ? _masterServer : $"{_masterServer}/";
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    _masterServer = null;
+                }
+                else
+                {
+                    _masterServer = value.EndsWith("/") ? value : $"{value}/";
+                }
+            }
         }
 
         internal static async Task Load()
         {
-            SettingsFile? settingsFile = await SettingsFile.Load();
-
-            if (settingsFile == null)
-            {
-                throw new Exception("Неожиданная ошибка при загрузке настроек.");
-            }
-
-            if (settingsFile.PathToSkyrim == null)
-            {
-                return;
-            }
+            SettingsFile settingsFile = await SettingsFile.Load();
 
             UserId = settingsFile.UserId;
             UserToken = settingsFile.UserToken;

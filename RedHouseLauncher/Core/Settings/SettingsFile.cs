@@ -15,7 +15,7 @@ namespace RedHouseLauncher.Core.Settings
             MasterServer = Config.DefaultMaster;
         }
 
-        internal SettingsFile(int userId, string? userToken, string? userName, string pathToSkyrim, string masterServer)
+        internal SettingsFile(int userId, string? userToken, string? userName, string? pathToSkyrim, string? masterServer)
         {
             UserId = userId;
             UserToken = userToken;
@@ -28,9 +28,9 @@ namespace RedHouseLauncher.Core.Settings
         [JsonProperty("userToken")] internal string? UserToken { get; set; }
         [JsonProperty("userName")] internal string? UserName { get; set; }
         [JsonProperty("pathToSkyrim")] internal string? PathToSkyrim { get; set; }
-        [JsonProperty("masterServer")] internal string MasterServer { get; set; }
+        [JsonProperty("masterServer")] internal string? MasterServer { get; set; }
 
-        internal static async Task<SettingsFile?> Load()
+        internal static async Task<SettingsFile> Load()
         {
             string settingsPath = Paths.SettingsFilePath;
 
@@ -38,7 +38,7 @@ namespace RedHouseLauncher.Core.Settings
             {
                 string fileContent = await File.ReadAllTextAsync(settingsPath);
 
-                SettingsFile? deserializedSettingsFile = JsonConvert.DeserializeObject<SettingsFile>(fileContent);
+                SettingsFile deserializedSettingsFile = JsonConvert.DeserializeObject<SettingsFile>(fileContent) ?? new SettingsFile();
 
                 return deserializedSettingsFile;
             }
