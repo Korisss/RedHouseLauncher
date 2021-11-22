@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,7 +31,11 @@ namespace RedHouseLauncher.Core
                 response.EnsureSuccessStatusCode();
 
                 using Stream responseStream = response.Content.ReadAsStream();
-                if (responseStream == null) return null;
+
+                if (responseStream == null)
+                {
+                    return null;
+                }
 
                 using StreamReader streamReader = new(responseStream);
                 string result = streamReader.ReadToEnd();
@@ -44,7 +44,10 @@ namespace RedHouseLauncher.Core
             }
             else if (method == "POST")
             {
-                if (data == null) return null;
+                if (data == null)
+                {
+                    return null;
+                }
 
                 using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
 
@@ -52,7 +55,11 @@ namespace RedHouseLauncher.Core
                 response.EnsureSuccessStatusCode();
 
                 using Stream responseStream = response.Content.ReadAsStream();
-                if (responseStream == null) return null;
+
+                if (responseStream == null)
+                {
+                    return null;
+                }
 
                 using StreamReader streamReader = new(responseStream);
                 string result = streamReader.ReadToEnd();
@@ -80,7 +87,11 @@ namespace RedHouseLauncher.Core
                 response.EnsureSuccessStatusCode();
 
                 using Stream responseStream = await response.Content.ReadAsStreamAsync();
-                if (responseStream == null) return null;
+
+                if (responseStream == null)
+                {
+                    return null;
+                }
 
                 using StreamReader streamReader = new(responseStream);
                 string result = await streamReader.ReadToEndAsync();
@@ -89,7 +100,10 @@ namespace RedHouseLauncher.Core
             }
             else if (method == "POST")
             {
-                if (data == null) return null;
+                if (data == null)
+                {
+                    return null;
+                }
 
                 using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
 
@@ -97,7 +111,11 @@ namespace RedHouseLauncher.Core
                 response.EnsureSuccessStatusCode();
 
                 using Stream responseStream = await response.Content.ReadAsStreamAsync();
-                if (responseStream == null) return null;
+
+                if (responseStream == null)
+                {
+                    return null;
+                }
 
                 using StreamReader streamReader = new(responseStream);
                 string result = await streamReader.ReadToEndAsync();

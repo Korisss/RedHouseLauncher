@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RedHouseLauncher.Core.Settings;
+using System.Windows;
 
 namespace RedHouseLauncher.UI.Views
 {
@@ -10,6 +11,11 @@ namespace RedHouseLauncher.UI.Views
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Settings.PathToSkyrim);
         }
     }
 }
