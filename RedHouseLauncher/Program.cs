@@ -16,7 +16,7 @@ namespace RedHouseLauncher
             });
 
             ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3; // Попробовать потом убрать SSL
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls; // Попробовать потом вернуть SSL
 
             App app = new();
             app.InitializeComponent();
