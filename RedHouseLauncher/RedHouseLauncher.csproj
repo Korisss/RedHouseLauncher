@@ -8,6 +8,10 @@
     <StartupObject>RedHouseLauncher.Program</StartupObject>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>LauncherIcon.ico</ApplicationIcon>
+    <Company>Red House</Company>
+    <Authors>Koriss</Authors>
+    <Description>Launcher for Red House projects</Description>
+    <Copyright>©️ Koriss</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
