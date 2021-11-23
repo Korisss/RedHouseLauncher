@@ -74,7 +74,8 @@ namespace RedHouseLauncher.UI.Views.Components
 
             try
             {
-                skyMPSettings.GameData = await AccountWorker.GetSession(skyMPSettings.ServerIp + ':' + skyMPSettings.ServerPort);
+                object gameData = await AccountWorker.GetSession(skyMPSettings.ServerIp + ':' + skyMPSettings.ServerPort);
+                skyMPSettings.GameData = gameData;
                 await skyMPSettings.Save();
             }
             catch (Exception err)

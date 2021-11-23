@@ -47,7 +47,7 @@ namespace RedHouseLauncher.Core
             {
                 if (data == null)
                 {
-                    return null;
+                    data = "";
                 }
 
                 using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -104,7 +104,7 @@ namespace RedHouseLauncher.Core
             {
                 if (data == null)
                 {
-                    return null;
+                    data = "";
                 }
 
                 using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -123,7 +123,6 @@ namespace RedHouseLauncher.Core
                 string result = await streamReader.ReadToEndAsync();
 
                 return result;
-
             }
 
             return null;

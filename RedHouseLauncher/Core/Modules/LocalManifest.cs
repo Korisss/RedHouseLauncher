@@ -24,7 +24,7 @@ namespace RedHouseLauncher.Core.Modules
 
         internal static async Task<LocalManifest> Load()
         {
-            string path = Paths.LauncherFilesPath + "gameManifest.json";
+            string path = Paths.LauncherFilesPath() + "gameManifest.json";
 
             if (!File.Exists(path))
             {
@@ -108,7 +108,7 @@ namespace RedHouseLauncher.Core.Modules
 
         internal void Save()
         {
-            string launcherFilesPath = Paths.LauncherFilesPath;
+            string launcherFilesPath = Paths.LauncherFilesPath();
             string manifestPath = launcherFilesPath + "gameManifest.json";
             string serializedManifest = JsonConvert.SerializeObject(this);
 

@@ -12,7 +12,10 @@ namespace RedHouseLauncher.Core
             return Settings.Settings.PathToSkyrim + "Data\\Platform\\Plugins\\skymp5-client-settings.txt";
         }
 
-        internal static string LauncherFilesPath = Settings.Settings.PathToSkyrim + "Launcher_Files\\";
+        internal static string LauncherFilesPath()
+        {
+            return Settings.Settings.PathToSkyrim + "Launcher_Files\\";
+        }
 
         internal static string SkyrimExePath()
         {
