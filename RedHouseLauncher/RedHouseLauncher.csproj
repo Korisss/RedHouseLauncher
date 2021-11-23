@@ -12,6 +12,7 @@
     <Authors>Koriss</Authors>
     <Description>Launcher for Red House projects</Description>
     <Copyright>©️ Koriss</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
