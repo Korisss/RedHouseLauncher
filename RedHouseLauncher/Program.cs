@@ -1,4 +1,5 @@
-﻿using RedHouseLauncher.Core.Settings;
+﻿using RedHouseLauncher.Core;
+using RedHouseLauncher.Core.Settings;
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -14,6 +15,7 @@ namespace RedHouseLauncher
         {
             Task.Run(async () =>
             {
+                await Updater.Update();
                 await Settings.Load();
             });
 
@@ -34,7 +36,10 @@ namespace RedHouseLauncher
 
             Process[] launcherProcesses = Process.GetProcessesByName(exe);
 
-            if (launcherProcesses.Length < 2) return;
+            if (launcherProcesses.Length < 2)
+            {
+                return;
+            }
 
             MessageBox.Show("Лаунчер уже запущен.");
             Application.Current.Shutdown();
