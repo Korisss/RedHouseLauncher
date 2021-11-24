@@ -5,238 +5,79 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:icons="clr-namespace:RedHouseLauncher.UI.Images.Icons"
         mc:Ignorable="d" 
-        d:DesignHeight="680" d:DesignWidth="723" ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        d:DesignHeight="680" d:DesignWidth="723" ResizeMode="NoResize" Height="680" Width="723"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
         Background="Transparent" AllowsTransparency="True" KeyDown="EnterClicked">
-    <Grid Background="Transparent" Height="680" MouseDown="DragWindow">
-        <Border Width="723" CornerRadius="25,25,25,25">
-            <Border.Background>
-                <ImageBrush ImageSource="../../UI/Images/Background.png" Stretch="Uniform">
-                    <ImageBrush.Transform>
-                        <TransformGroup>
-                            <TranslateTransform Y="-144"/>
-                            <ScaleTransform ScaleX="1.73" ScaleY="1.73"/>
-                        </TransformGroup>
-                    </ImageBrush.Transform>
-                </ImageBrush>
-            </Border.Background>
+    <Border MouseDown="DragWindow" CornerRadius="25,25,25,25">
+        <Border.Background>
+            <ImageBrush ImageSource="../../UI/Images/Background.png" Stretch="Uniform">
+                <ImageBrush.Transform>
+                    <TransformGroup>
+                        <TranslateTransform Y="-144"/>
+                        <ScaleTransform ScaleX="1.73" ScaleY="1.73"/>
+                    </TransformGroup>
+                </ImageBrush.Transform>
+            </ImageBrush>
+        </Border.Background>
 
-            <Grid Background="Transparent">
-                <!-- Вход -->
-                <Grid Background="Transparent" x:Name="LoginPage" Width="723" Height="680">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="22"/>
-                        <RowDefinition Height="24"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="486"/>
-                        <RowDefinition Height="102"/>
-                    </Grid.RowDefinitions>
+        <Grid Background="Transparent">
+            <!-- Вход -->
+            <Grid Background="Transparent" x:Name="LoginPage" Width="723" Height="680">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="486"/>
+                    <RowDefinition Height="102"/>
+                </Grid.RowDefinitions>
 
-                    <!-- Тулбар -->
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="645"/>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
+                <!-- Тулбар -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="645"/>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
 
-                        <!-- Сворачивание -->
-                        <icons:MinimizeIcon Grid.Column="1" MouseDown="MinimizeWindow"/>
+                    <!-- Сворачивание -->
+                    <icons:MinimizeIcon Grid.Column="1" MouseDown="MinimizeWindow"/>
 
-                        <!-- Выход -->
-                        <icons:ExitIcon Grid.Column="3"/>
-                    </Grid>
-
-                    <!-- Вход -->
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="109"/>
-                            <ColumnDefinition Width="505"/>
-                            <ColumnDefinition Width="109"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="151"/>
-                                <RowDefinition Height="22"/>
-                                <RowDefinition Height="313"/>
-                            </Grid.RowDefinitions>
-
-                            <!-- Добро пожаловать -->
-                            <Grid Grid.Row="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="102"/>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="24"/>
-                                </Grid.RowDefinitions>
-
-                                <!-- Текст и полосы -->
-                                <Grid Grid.Row="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="132"/>
-                                        <ColumnDefinition Width="30"/>
-                                        <ColumnDefinition Width="181"/>
-                                        <ColumnDefinition Width="30"/>
-                                        <ColumnDefinition Width="132"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- Полоса 1 -->
-                                    <Grid Grid.Column="0">
-                                        <Rectangle Fill="White" Height="2"/>
-                                    </Grid>
-
-                                    <!-- Текст -->
-                                    <Grid Grid.Column="2">
-                                        <Label Content="Добро пожаловать" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
-                                    </Grid>
-
-                                    <!-- Полоса 2 -->
-                                    <Grid Grid.Column="4">
-                                        <Rectangle Fill="White" Height="2"/>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-
-                            <!-- Текстбоксы и кнопки -->
-                            <Grid Grid.Row="2">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="86"/>
-                                    <ColumnDefinition Width="333"/>
-                                    <ColumnDefinition Width="86"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="46"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="46"/>
-                                        <RowDefinition Height="15"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="15"/>
-                                        <RowDefinition Height="46"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="46"/>
-                                        <RowDefinition Height="20"/>
-                                        <RowDefinition Height="19"/>
-                                    </Grid.RowDefinitions>
-
-                                    <!-- Текстбокс почты -->
-                                    <Grid Grid.Row="0">
-                                        <Border Background="#2D2D2D" CornerRadius="10">
-                                            <TextBox x:Name="EmailTextBox"  TextWrapping="NoWrap" Text="Почта" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="EmailTextBoxClear" LostFocus="EmailTextBoxFill"/>
-                                        </Border>
-                                    </Grid>
-
-                                    <!-- Текстбокс пароля -->
-                                    <Grid Grid.Row="2">
-                                        <Border Background="#2D2D2D" CornerRadius="10">
-                                            <Grid>
-                                                <TextBox x:Name="PasswordTextBox" Text="Пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="PasswordTextBoxChange1"/>
-
-                                                <PasswordBox x:Name="PasswordTextBoxHidden" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="PasswordTextBoxChange2"/>
-                                            </Grid>
-                                        </Border>
-                                    </Grid>
-
-                                    <!-- Кнопка войти -->
-                                    <Grid Grid.Row="6">
-                                        <Border x:Name="LoginButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="LoginButtonHoverEnable" MouseLeave="LoginButtonHoverDisable" MouseDown="Login">
-                                            <Label Content="Войти" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="45" Margin="144,14,144,0"/>
-                                        </Border>
-                                    </Grid>
-
-                                    <!-- Кнопка регистрации -->
-                                    <Grid Grid.Row="8">
-                                        <Border x:Name="RegisterButton" Background="Transparent" CornerRadius="10" Cursor="Hand" BorderThickness="1.5" BorderBrush="White" MouseEnter="RegisterButtonHoverEnable" MouseLeave="RegisterButtonHoverDisable" MouseDown="ShowRegisterPage">
-                                            <Label Content="Регистрация" VerticalAlignment="Top" Foreground="White" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="97" Margin="116,11,116,0"/>
-                                        </Border>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                    <!-- Выход -->
+                    <icons:ExitIcon Grid.Column="3"/>
                 </Grid>
 
-                <!-- Регистрация -->
-                <Grid x:Name="RegisterPage" Visibility="Hidden" Width="723" Height="680" Background="Transparent">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="22"/>
-                        <RowDefinition Height="24"/>
-                        <RowDefinition Height="0"/>
-                        <RowDefinition Height="567"/>
-                        <RowDefinition Height="61"/>
-                    </Grid.RowDefinitions>
+                <!-- Вход -->
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="109"/>
+                        <ColumnDefinition Width="505"/>
+                        <ColumnDefinition Width="109"/>
+                    </Grid.ColumnDefinitions>
 
-                    <!-- Тулбар -->
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="59"/>
-                            <ColumnDefinition Width="537"/>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="24"/>
-                            <ColumnDefinition Width="20"/>
-                        </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="151"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="313"/>
+                        </Grid.RowDefinitions>
 
-                        <!-- Кнопка назад -->
-                        <icons:UserInfoIcon x:Name="BackToLoginButton" Grid.Column="1" MouseDown="BackToLogin">
-                            <icons:UserInfoIcon.LayoutTransform>
-                                <RotateTransform Angle="90"/>
-                            </icons:UserInfoIcon.LayoutTransform>
-                        </icons:UserInfoIcon>
-
-                        <!-- Надпись назад -->
-                        <Label Content="Назад" Grid.Column="3" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0" Grid.ColumnSpan="2" Margin="0,0,537,0"/>
-
-                        <!-- Сворачивание -->
-                        <icons:MinimizeIcon Grid.Column="5" MouseDown="MinimizeWindow"/>
-
-                        <!-- Выход -->
-                        <icons:ExitIcon Grid.Column="7"/>
-                    </Grid>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="148"/>
-                            <ColumnDefinition Width="427"/>
-                            <ColumnDefinition Width="148"/>
-                        </Grid.ColumnDefinitions>
-
-                        <!-- Само окошко -->
-                        <Grid Grid.Column="1">
+                        <!-- Добро пожаловать -->
+                        <Grid Grid.Row="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="102"/>
                                 <RowDefinition Height="25"/>
                                 <RowDefinition Height="24"/>
-                                <RowDefinition Height="22"/>
-                                <RowDefinition Height="46"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="46"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="46"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="46"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="46"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="64"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Надпись регистрации -->
+                            <!-- Текст и полосы -->
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="132"/>
-                                    <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="123"/>
-                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="181"/>
+                                    <ColumnDefinition Width="30"/>
                                     <ColumnDefinition Width="132"/>
                                 </Grid.ColumnDefinitions>
 
@@ -247,7 +88,7 @@
 
                                 <!-- Текст -->
                                 <Grid Grid.Column="2">
-                                    <Label Content="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
+                                    <Label Content="Добро пожаловать" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
                                 </Grid>
 
                                 <!-- Полоса 2 -->
@@ -255,59 +96,216 @@
                                     <Rectangle Fill="White" Height="2"/>
                                 </Grid>
                             </Grid>
+                        </Grid>
 
-                            <!-- Текстбокс ника -->
-                            <Grid Width="333" Grid.Row="4">
-                                <Border Background="#2D2D2D" CornerRadius="10">
-                                    <TextBox x:Name="NicknameTextBox" TextWrapping="NoWrap" Text="Имя" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="NicknameTextBoxClear" LostFocus="NicknameTextBoxFill"/>
-                                </Border>
-                            </Grid>
+                        <!-- Текстбоксы и кнопки -->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="86"/>
+                                <ColumnDefinition Width="333"/>
+                                <ColumnDefinition Width="86"/>
+                            </Grid.ColumnDefinitions>
 
-                            <!-- Текстбокс почты -->
-                            <Grid Width="333" Grid.Row="6">
-                                <Border Background="#2D2D2D" CornerRadius="10">
-                                    <TextBox x:Name="RegisterEmailTextBox" TextWrapping="NoWrap" Text="Почта" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_EmailTextBoxClear" LostFocus="Register_EmailTextBoxFill"/>
-                                </Border>
-                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="46"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="46"/>
+                                    <RowDefinition Height="15"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="15"/>
+                                    <RowDefinition Height="46"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="46"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="19"/>
+                                </Grid.RowDefinitions>
 
-                            <!-- Текстбокс пароля -->
-                            <Grid Width="333" Grid.Row="8">
-                                <Border Background="#2D2D2D" CornerRadius="10">
-                                    <Grid>
-                                        <TextBox x:Name="RegisterPasswordTextBox1" Text="Пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_PasswordTextBoxChange11"/>
+                                <!-- Текстбокс почты -->
+                                <Grid Grid.Row="0">
+                                    <Border Background="#2D2D2D" CornerRadius="10">
+                                        <TextBox x:Name="EmailTextBox"  TextWrapping="NoWrap" Text="Почта" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="EmailTextBoxClear" LostFocus="EmailTextBoxFill"/>
+                                    </Border>
+                                </Grid>
 
-                                        <PasswordBox x:Name="RegisterPasswordTextBoxHidden1" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="Register_PasswordTextBoxChange21"/>
-                                    </Grid>
-                                </Border>
-                            </Grid>
+                                <!-- Текстбокс пароля -->
+                                <Grid Grid.Row="2">
+                                    <Border Background="#2D2D2D" CornerRadius="10">
+                                        <Grid>
+                                            <TextBox x:Name="PasswordTextBox" Text="Пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="PasswordTextBoxChange1"/>
 
-                            <!-- Текстбокс подтверждения пароля -->
-                            <Grid Width="333" Grid.Row="10">
-                                <Border Background="#2D2D2D" CornerRadius="10">
-                                    <Grid>
-                                        <TextBox x:Name="RegisterPasswordTextBox2" Text="Подтвердите пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_PasswordTextBoxChange12"/>
+                                            <PasswordBox x:Name="PasswordTextBoxHidden" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="PasswordTextBoxChange2"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
 
-                                        <PasswordBox x:Name="RegisterPasswordTextBoxHidden2" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
-                                             Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="Register_PasswordTextBoxChange22"/>
-                                    </Grid>
-                                </Border>
-                            </Grid>
+                                <!-- Кнопка войти -->
+                                <Grid Grid.Row="6">
+                                    <Border x:Name="LoginButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="LoginButtonHoverEnable" MouseLeave="LoginButtonHoverDisable" MouseDown="Login">
+                                        <Label Content="Войти" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="45" Margin="144,14,144,0"/>
+                                    </Border>
+                                </Grid>
 
-                            <!-- Кнопка регистрации -->
-                            <Grid Width="333" Grid.Row="12">
-                                <Border x:Name="RegisterRegisterButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="Register_RegisterButtonHoverEnable" MouseLeave="Register_RegisterButtonHoverDisable" MouseDown="Register">
-                                    <Label Content="Регистрация" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="97" Margin="118,14,118,0"/>
-                                </Border>
+                                <!-- Кнопка регистрации -->
+                                <Grid Grid.Row="8">
+                                    <Border x:Name="RegisterButton" Background="Transparent" CornerRadius="10" Cursor="Hand" BorderThickness="1.5" BorderBrush="White" MouseEnter="RegisterButtonHoverEnable" MouseLeave="RegisterButtonHoverDisable" MouseDown="ShowRegisterPage">
+                                        <Label Content="Регистрация" VerticalAlignment="Top" Foreground="White" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="97" Margin="116,11,116,0"/>
+                                    </Border>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Border>
-    </Grid>
+
+            <!-- Регистрация -->
+            <Grid x:Name="RegisterPage" Visibility="Hidden" Width="723" Height="680" Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="567"/>
+                    <RowDefinition Height="61"/>
+                </Grid.RowDefinitions>
+
+                <!-- Тулбар -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="59"/>
+                        <ColumnDefinition Width="537"/>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="24"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Кнопка назад -->
+                    <icons:UserInfoIcon x:Name="BackToLoginButton" Grid.Column="1" MouseDown="BackToLogin">
+                        <icons:UserInfoIcon.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </icons:UserInfoIcon.LayoutTransform>
+                    </icons:UserInfoIcon>
+
+                    <!-- Надпись назад -->
+                    <Label Content="Назад" Grid.Column="3" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0" Grid.ColumnSpan="2" Margin="0,0,537,0"/>
+
+                    <!-- Сворачивание -->
+                    <icons:MinimizeIcon Grid.Column="5" MouseDown="MinimizeWindow"/>
+
+                    <!-- Выход -->
+                    <icons:ExitIcon Grid.Column="7"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="148"/>
+                        <ColumnDefinition Width="427"/>
+                        <ColumnDefinition Width="148"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Само окошко -->
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="102"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="46"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="46"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="46"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="46"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="46"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="64"/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Надпись регистрации -->
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="132"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="123"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="132"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Полоса 1 -->
+                            <Grid Grid.Column="0">
+                                <Rectangle Fill="White" Height="2"/>
+                            </Grid>
+
+                            <!-- Текст -->
+                            <Grid Grid.Column="2">
+                                <Label Content="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
+                            </Grid>
+
+                            <!-- Полоса 2 -->
+                            <Grid Grid.Column="4">
+                                <Rectangle Fill="White" Height="2"/>
+                            </Grid>
+                        </Grid>
+
+                        <!-- Текстбокс ника -->
+                        <Grid Width="333" Grid.Row="4">
+                            <Border Background="#2D2D2D" CornerRadius="10">
+                                <TextBox x:Name="NicknameTextBox" TextWrapping="NoWrap" Text="Имя" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="NicknameTextBoxClear" LostFocus="NicknameTextBoxFill"/>
+                            </Border>
+                        </Grid>
+
+                        <!-- Текстбокс почты -->
+                        <Grid Width="333" Grid.Row="6">
+                            <Border Background="#2D2D2D" CornerRadius="10">
+                                <TextBox x:Name="RegisterEmailTextBox" TextWrapping="NoWrap" Text="Почта" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_EmailTextBoxClear" LostFocus="Register_EmailTextBoxFill"/>
+                            </Border>
+                        </Grid>
+
+                        <!-- Текстбокс пароля -->
+                        <Grid Width="333" Grid.Row="8">
+                            <Border Background="#2D2D2D" CornerRadius="10">
+                                <Grid>
+                                    <TextBox x:Name="RegisterPasswordTextBox1" Text="Пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_PasswordTextBoxChange11"/>
+
+                                    <PasswordBox x:Name="RegisterPasswordTextBoxHidden1" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="Register_PasswordTextBoxChange21"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+                        <!-- Текстбокс подтверждения пароля -->
+                        <Grid Width="333" Grid.Row="10">
+                            <Border Background="#2D2D2D" CornerRadius="10">
+                                <Grid>
+                                    <TextBox x:Name="RegisterPasswordTextBox2" Text="Подтвердите пароль" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="#8C8C8C" CaretBrush="White" GotFocus="Register_PasswordTextBoxChange12"/>
+
+                                    <PasswordBox x:Name="RegisterPasswordTextBoxHidden2" Width="334" Height="19" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" 
+                                     Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Visibility="Hidden" LostFocus="Register_PasswordTextBoxChange22"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+                        <!-- Кнопка регистрации -->
+                        <Grid Width="333" Grid.Row="12">
+                            <Border x:Name="RegisterRegisterButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="Register_RegisterButtonHoverEnable" MouseLeave="Register_RegisterButtonHoverDisable" MouseDown="Register">
+                                <Label Content="Регистрация" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="97" Margin="118,14,118,0"/>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

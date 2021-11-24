@@ -15,9 +15,10 @@ namespace RedHouseLauncher.Core
         //         streamWriter.Write($"{data ?? ""}");
         //     }
 
+        private static HttpClient httpClient = new();
+
         internal static string? Request(string url, string method = "GET", string? data = null, bool auth = false)
         {
-            HttpClient httpClient = new();
             httpClient.Timeout = TimeSpan.FromSeconds(5);
             httpClient.BaseAddress = new Uri(url);
 
@@ -74,7 +75,6 @@ namespace RedHouseLauncher.Core
 
         internal static async Task<string?> RequestAsync(string url, string method = "GET", string? data = null, bool auth = false)
         {
-            HttpClient httpClient = new();
             httpClient.Timeout = TimeSpan.FromSeconds(5);
             httpClient.BaseAddress = new Uri(url);
 
