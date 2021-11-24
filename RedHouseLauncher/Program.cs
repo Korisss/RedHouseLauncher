@@ -15,11 +15,11 @@ namespace RedHouseLauncher
         {
             if (CheckAlreadyStarted()) return;
 
-            Task.Run(async () => await Updater.Update());
-            Task.Run(async () => await Settings.Load());
-
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+            Task.Run(async () => await Updater.Update());
+            Task.Run(async () => await Settings.Load());            
 
             App app = new();
             app.InitializeComponent();
