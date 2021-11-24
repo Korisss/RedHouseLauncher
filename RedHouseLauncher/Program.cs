@@ -19,7 +19,7 @@ namespace RedHouseLauncher
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             Task.Run(async () => await Updater.Update());
-            Task.Run(async () => await Settings.Load());            
+            Settings.Load();
 
             App app = new();
             app.InitializeComponent();
