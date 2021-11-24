@@ -13,6 +13,8 @@ namespace RedHouseLauncher
         [STAThread]
         public static void Main()
         {
+            if (CheckAlreadyStarted()) return;
+
             Task.Run(async () => await Updater.Update());
             Task.Run(async () => await Settings.Load());
 
@@ -20,14 +22,11 @@ namespace RedHouseLauncher
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             App app = new();
-
-            CheckAlreadyStarted();
-
             app.InitializeComponent();
             app.Run();
         }
 
-        private static void CheckAlreadyStarted()
+        private static bool CheckAlreadyStarted()
         {
             string exe = AppDomain.CurrentDomain.FriendlyName;
 
@@ -35,11 +34,12 @@ namespace RedHouseLauncher
 
             if (launcherProcesses.Length < 2)
             {
-                return;
+                return false;
             }
 
             MessageBox.Show("Лаунчер уже запущен.");
-            Application.Current.Shutdown();
+
+            return true;
         }
     }
 }
