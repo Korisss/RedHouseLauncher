@@ -13,14 +13,11 @@ namespace RedHouseLauncher
         [STAThread]
         public static void Main()
         {
-            Task.Run(async () =>
-            {
-                await Updater.Update();
-                await Settings.Load();
-            });
+            Task.Run(async () => await Updater.Update());
+            Task.Run(async () => await Settings.Load());
 
             ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls; // Попробовать потом вернуть SSL
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             App app = new();
 
