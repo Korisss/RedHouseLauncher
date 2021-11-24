@@ -16,7 +16,7 @@ namespace RedHouseLauncher.UI.Views
         {
             try
             {
-                if (Settings.PathToSkyrim == "" || Settings.PathToSkyrim == "\\")
+                if (Settings.PathToSkyrim == "" || Settings.PathToSkyrim == "\\" || Settings.PathToSkyrim == null)
                 {
                     InitializeComponent();
                     return;
