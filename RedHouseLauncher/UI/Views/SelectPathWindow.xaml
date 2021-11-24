@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Папка с игрой" 
-        Height="157.333" Width="522" 
+        Height="158" Width="522" 
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize">
     <Grid>
