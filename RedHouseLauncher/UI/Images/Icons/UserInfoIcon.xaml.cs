@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using System.Windows.Media;
 
 namespace RedHouseLauncher.UI.Images.Icons
@@ -7,7 +6,7 @@ namespace RedHouseLauncher.UI.Images.Icons
     /// <summary>
     /// Interaction logic for UserInfoIcon.xaml
     /// </summary>
-    public partial class UserInfoIcon : UserControl
+    public partial class UserInfoIcon
     {
         public UserInfoIcon()
         {
@@ -21,7 +20,7 @@ namespace RedHouseLauncher.UI.Images.Icons
 
         private void RemoveHighlight(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {

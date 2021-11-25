@@ -14,7 +14,7 @@ namespace RedHouseLauncher.UI.Views
     /// <summary>
     /// Interaction logic for AuthWindow.xaml
     /// </summary>
-    public partial class AuthWindow : Window
+    public partial class AuthWindow
     {
         public AuthWindow()
         {
@@ -28,7 +28,10 @@ namespace RedHouseLauncher.UI.Views
             {
                 new SelectPathWindow().Show();
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             Close();
         }
@@ -285,7 +288,10 @@ namespace RedHouseLauncher.UI.Views
                     DragMove();
                 }
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void MinimizeWindow(object sender, MouseButtonEventArgs e)
@@ -299,7 +305,7 @@ namespace RedHouseLauncher.UI.Views
 
         private void LoginButtonHoverEnable(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
+            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
 
             if (colorConverter == null)
             {
@@ -316,7 +322,7 @@ namespace RedHouseLauncher.UI.Views
 
         private void RegisterButtonHoverEnable(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
+            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
 
             if (colorConverter == null)
             {
@@ -333,7 +339,7 @@ namespace RedHouseLauncher.UI.Views
 
         private void Register_RegisterButtonHoverEnable(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
+            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
 
             if (colorConverter == null)
             {
@@ -361,7 +367,7 @@ namespace RedHouseLauncher.UI.Views
 
             EmailTextBox.Text = "Почта";
 
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {
@@ -410,7 +416,7 @@ namespace RedHouseLauncher.UI.Views
 
             NicknameTextBox.Text = "Имя";
 
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {
@@ -440,7 +446,7 @@ namespace RedHouseLauncher.UI.Views
 
             RegisterEmailTextBox.Text = "Почта";
 
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {

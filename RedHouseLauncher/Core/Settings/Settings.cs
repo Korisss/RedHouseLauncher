@@ -4,9 +4,9 @@ namespace RedHouseLauncher.Core.Settings
 {
     internal class Settings
     {
-        private static string? _pathToSkyrim = null;
+        private static string? _pathToSkyrim;
 
-        private static string? _masterServer = null;
+        private static string? _masterServer;
         internal static int UserId { get; set; }
         internal static string? UserToken { get; set; }
         internal static string? UserName { get; set; }

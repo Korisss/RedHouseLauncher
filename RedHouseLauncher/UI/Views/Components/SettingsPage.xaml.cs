@@ -4,14 +4,13 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
-using UserControl = System.Windows.Controls.UserControl;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
     /// <summary>
     /// Interaction logic for SettingsPage.xaml
     /// </summary>
-    public partial class SettingsPage : UserControl
+    public partial class SettingsPage
     {
         public SettingsPage()
         {

@@ -12,7 +12,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task<RegisterModelResponse?> Register(RegisterModelRequest registerModel)
         {
-            string? response = await Networking.RequestAsync($"{ApiUri}users", "POST", JsonConvert.SerializeObject(registerModel), false);
+            string? response = await Networking.RequestAsync($"{ApiUri}users", "POST", JsonConvert.SerializeObject(registerModel));
 
             if (response == null)
             {
@@ -24,7 +24,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task<LoginModelResponse?> Login(LoginModelRequest model)
         {
-            string? response = await Networking.RequestAsync($"{ApiUri}users/login", "POST", JsonConvert.SerializeObject(model), false);
+            string? response = await Networking.RequestAsync($"{ApiUri}users/login", "POST", JsonConvert.SerializeObject(model));
 
             if (response == null)
             {
@@ -61,7 +61,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task ResetPassword(ResetPasswordModel resetPasswordModelRequest)
         {
-            await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest), false);
+            await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
         }
 
         // TODO: Add models

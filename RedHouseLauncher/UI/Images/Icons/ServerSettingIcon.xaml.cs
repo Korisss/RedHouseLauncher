@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace RedHouseLauncher.UI.Images.Icons
+﻿namespace RedHouseLauncher.UI.Images.Icons
 {
     /// <summary>
     /// Interaction logic for ServerSettingIcon.xaml
     /// </summary>
-    public partial class ServerSettingIcon : UserControl
+    public partial class ServerSettingIcon
     {
         public ServerSettingIcon()
         {

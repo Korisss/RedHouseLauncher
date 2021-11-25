@@ -31,11 +31,6 @@ namespace RedHouseLauncher.Core
 
                 using Stream responseStream = await response.Content.ReadAsStreamAsync();
 
-                if (responseStream == null)
-                {
-                    return null;
-                }
-
                 using StreamReader streamReader = new(responseStream);
                 string result = await streamReader.ReadToEndAsync();
 
@@ -54,11 +49,6 @@ namespace RedHouseLauncher.Core
                 response.EnsureSuccessStatusCode();
 
                 using Stream responseStream = await response.Content.ReadAsStreamAsync();
-
-                if (responseStream == null)
-                {
-                    return null;
-                }
 
                 using StreamReader streamReader = new(responseStream);
                 string result = await streamReader.ReadToEndAsync();

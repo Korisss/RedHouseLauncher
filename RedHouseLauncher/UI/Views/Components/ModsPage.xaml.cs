@@ -1,7 +1,6 @@
 ﻿using RedHouseLauncher.Core.Modules;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace RedHouseLauncher.UI.Views.Components
@@ -9,7 +8,7 @@ namespace RedHouseLauncher.UI.Views.Components
     /// <summary>
     /// Interaction logic for ModsPage.xaml
     /// </summary>
-    public partial class ModsPage : UserControl
+    public partial class ModsPage
     {
         public ModsPage()
         {
@@ -87,6 +86,11 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async void ToggleMod(object sender, MouseButtonEventArgs e)
         {
+            if (MainWindow.ModsPageStatic == null)
+            {
+                return;
+            }
+
             ListItem item = (ListItem)ModsListView.SelectedItem;
 
             if (item.IsInstalled)

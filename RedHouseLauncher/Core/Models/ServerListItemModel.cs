@@ -73,7 +73,10 @@ namespace RedHouseLauncher.Core.Models
             {
                 desc = await Networking.RequestAsync($"http://{Ip}:{Port + 1}/desc.txt");
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             return desc ?? "Не удалось получить описание";
         }
@@ -95,7 +98,10 @@ namespace RedHouseLauncher.Core.Models
                     return reply.RoundtripTime.ToString();
                 }
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             return "-";
         }
@@ -115,7 +121,10 @@ namespace RedHouseLauncher.Core.Models
 
                 return logo;
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             return null;
         }

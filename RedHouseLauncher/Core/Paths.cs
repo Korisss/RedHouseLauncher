@@ -7,7 +7,7 @@ namespace RedHouseLauncher.Core
         internal static readonly string LocalAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         internal static readonly string SettingsFilePath = LocalAppDataPath + @"\RedHouseLauncher\settings.json";
 
-        internal static string SkyMPSettingsFilePath()
+        internal static string SkyMpSettingsFilePath()
         {
             return Settings.Settings.PathToSkyrim + "Data\\Platform\\Plugins\\skymp5-client-settings.txt";
         }

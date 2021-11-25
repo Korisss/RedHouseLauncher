@@ -13,7 +13,10 @@ namespace RedHouseLauncher
         [STAThread]
         public static void Main()
         {
-            if (CheckAlreadyStarted()) return;
+            if (CheckAlreadyStarted())
+            {
+                return;
+            }
 
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;

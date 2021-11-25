@@ -10,7 +10,7 @@ namespace RedHouseLauncher.UI.Views
     /// <summary>
     /// Interaction logic for SelectPathWindow.xaml
     /// </summary>
-    public partial class SelectPathWindow : Window
+    public partial class SelectPathWindow
     {
         public SelectPathWindow()
         {

@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace RedHouseLauncher.UI.Images.Icons
+﻿namespace RedHouseLauncher.UI.Images.Icons
 {
     /// <summary>
     /// Interaction logic for PlayersIcon.xaml
     /// </summary>
-    public partial class PlayersIcon : UserControl
+    public partial class PlayersIcon
     {
         public PlayersIcon()
         {

@@ -45,7 +45,7 @@ namespace RedHouseLauncher.Core.GameUtils
             _ = Task.Run(async () =>
             {
                 await Task.Delay(120 * 1000);
-                await SkyMPSettings.DestroySession();
+                await SkyMpSettings.DestroySession();
             });
 
             while (true)

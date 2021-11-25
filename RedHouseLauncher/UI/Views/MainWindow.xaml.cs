@@ -11,10 +11,10 @@ namespace RedHouseLauncher.UI.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        internal static MainWindow MainWindowStatic;
-        internal static ModsPage ModsPageStatic = null;
+        internal static MainWindow? MainWindowStatic;
+        internal static ModsPage? ModsPageStatic;
 
         public MainWindow()
         {
@@ -26,15 +26,18 @@ namespace RedHouseLauncher.UI.Views
 
             _ = Task.Run(async () =>
             {
-                string nickname = "Error";
+                string? nickname = "Error";
 
                 try
                 {
                     nickname = await AccountWorker.GetLogin();
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
 
-                Dispatcher.Invoke(() => PlayerName.Content = nickname);
+                Dispatcher.Invoke(() => PlayerName.Content = nickname ?? "Error");
             });
 
             #endregion
@@ -52,7 +55,7 @@ namespace RedHouseLauncher.UI.Views
             switch (e.Key)
             {
                 case Key.Enter:
-                    ServerListTab.StartGame(null, null);
+                    ServerListTab.StartGame(sender: null, e: null);
                     break;
                 case Key.F5:
                     await ServerListTab.UpdateServerList();
@@ -92,6 +95,11 @@ namespace RedHouseLauncher.UI.Views
         {
             HideAllTabs();
 
+            if (ModsPageStatic == null)
+            {
+                return;
+            }
+
             await ModsPageStatic.UpdateList();
 
             ModsTab.Visibility = Visibility.Visible;
@@ -102,7 +110,7 @@ namespace RedHouseLauncher.UI.Views
 
         private void HideAllTabs()
         {
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {
@@ -137,7 +145,10 @@ namespace RedHouseLauncher.UI.Views
                     DragMove();
                 }
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void MinimizeWindow(object sender, MouseButtonEventArgs e)

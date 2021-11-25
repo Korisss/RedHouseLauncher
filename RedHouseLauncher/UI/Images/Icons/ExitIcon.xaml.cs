@@ -1,6 +1,5 @@
 ﻿using RedHouseLauncher.Core.Settings;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -9,7 +8,7 @@ namespace RedHouseLauncher.UI.Images.Icons
     /// <summary>
     /// Interaction logic for ExitIcon.xaml
     /// </summary>
-    public partial class ExitIcon : UserControl
+    public partial class ExitIcon
     {
         public ExitIcon()
         {
@@ -24,7 +23,7 @@ namespace RedHouseLauncher.UI.Images.Icons
 
         private void RemoveHighlight(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {
@@ -37,7 +36,7 @@ namespace RedHouseLauncher.UI.Images.Icons
 
         private async void CloseApp(object sender, MouseButtonEventArgs e)
         {
-            await SkyMPSettings.DestroySession();
+            await SkyMpSettings.DestroySession();
             Application.Current.Shutdown();
         }
     }

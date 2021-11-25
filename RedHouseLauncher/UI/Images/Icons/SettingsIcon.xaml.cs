@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using System.Windows.Media;
 
 namespace RedHouseLauncher.UI.Images.Icons
@@ -7,7 +6,7 @@ namespace RedHouseLauncher.UI.Images.Icons
     /// <summary>
     /// Interaction logic for SettingsIcon.xaml
     /// </summary>
-    public partial class SettingsIcon : UserControl
+    public partial class SettingsIcon
     {
         public bool IsClicked = false;
 
@@ -16,19 +15,19 @@ namespace RedHouseLauncher.UI.Images.Icons
             InitializeComponent();
         }
 
-        public void AddHighlightSettingsIcon(object sender, MouseEventArgs e)
+        public void AddHighlightSettingsIcon(object? sender, MouseEventArgs? e)
         {
             Drawer.Brush = Brushes.White;
         }
 
-        public void RemoveHighlightSettingsIcon(object sender, MouseEventArgs e)
+        public void RemoveHighlightSettingsIcon(object? sender, MouseEventArgs? e)
         {
             if (IsClicked)
             {
                 return;
             }
 
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {

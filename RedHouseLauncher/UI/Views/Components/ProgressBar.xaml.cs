@@ -6,14 +6,13 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
     /// <summary>
     /// Interaction logic for ProgressBar.xaml
     /// </summary>
-    public partial class ProgressBar : UserControl
+    public partial class ProgressBar
     {
         private long _lastBytes;
 
@@ -105,7 +104,7 @@ namespace RedHouseLauncher.UI.Views.Components
                 // Перетащить на HttpClient при возможности
                 using (WebClient client = new())
                 {
-                    client.DownloadFileCompleted += (sender, args) =>
+                    client.DownloadFileCompleted += (_, _) =>
                         Dispatcher.Invoke(() => Visibility = Visibility.Hidden);
                     client.DownloadProgressChanged += SetPercentage;
                     client.DownloadProgressChanged += SetSpeed;

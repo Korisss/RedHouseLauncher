@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.Settings
 {
-    internal class SkyMPSettings
+    internal class SkyMpSettings
     {
-        internal SkyMPSettings()
+        internal SkyMpSettings()
         {
             ServerIp = null;
             ServerPort = -1;
@@ -23,7 +23,7 @@ namespace RedHouseLauncher.Core.Settings
 
         internal static async Task DestroySession()
         {
-            SkyMPSettings? skyMpSettings = await Load();
+            SkyMpSettings? skyMpSettings = await Load();
 
             if (skyMpSettings == null)
             {
@@ -39,26 +39,26 @@ namespace RedHouseLauncher.Core.Settings
             skyMpSettings.ServerPort = -1;
 
             skyMpSettings.GameData = null;
-            skyMpSettings.Save();
+            await skyMpSettings.Save();
         }
 
-        internal static async Task<SkyMPSettings?> Load()
+        internal static async Task<SkyMpSettings?> Load()
         {
-            string path = Paths.SkyMPSettingsFilePath();
+            string path = Paths.SkyMpSettingsFilePath();
 
             if (!File.Exists(path))
             {
-                return new SkyMPSettings();
+                return new SkyMpSettings();
             }
 
             string fileContent = await File.ReadAllTextAsync(path);
 
-            if (fileContent == null || fileContent == "")
+            if (string.IsNullOrEmpty(fileContent))
             {
-                return new SkyMPSettings();
+                return new SkyMpSettings();
             }
 
-            SkyMPSettings? deserializedSettings = JsonConvert.DeserializeObject<SkyMPSettings>(fileContent);
+            SkyMpSettings? deserializedSettings = JsonConvert.DeserializeObject<SkyMpSettings>(fileContent);
 
             return deserializedSettings;
         }
@@ -67,7 +67,7 @@ namespace RedHouseLauncher.Core.Settings
         {
             string serializedSettings = JsonConvert.SerializeObject(this);
 
-            await File.WriteAllTextAsync(Paths.SkyMPSettingsFilePath(), serializedSettings);
+            await File.WriteAllTextAsync(Paths.SkyMpSettingsFilePath(), serializedSettings);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RedHouseLauncher.Core
 {
     internal class Updater
     {
-        private const short version = 214;
+        private const short Version = 214;
         internal static async Task Update()
         {
             try
@@ -60,7 +60,7 @@ namespace RedHouseLauncher.Core
 
             int versionFromSite = Convert.ToInt32(await Networking.RequestAsync(url));
 
-            return version == versionFromSite;
+            return Version == versionFromSite;
         }
     }
 }

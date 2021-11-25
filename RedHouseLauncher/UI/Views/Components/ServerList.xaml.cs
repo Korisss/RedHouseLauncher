@@ -14,7 +14,7 @@ namespace RedHouseLauncher.UI.Views.Components
     /// <summary>
     /// Interaction logic for ServerList.xaml
     /// </summary>
-    public partial class ServerList : UserControl
+    public partial class ServerList
     {
         public ServerList()
         {
@@ -29,11 +29,6 @@ namespace RedHouseLauncher.UI.Views.Components
         {
             ServerListItemModel selectedServer = (ServerListItemModel)ServerListView.SelectedItem;
 
-            if (selectedServer == null)
-            {
-                return;
-            }
-
             ServerIcon.Source = selectedServer.ServerIcon;
             ServerName.Content = selectedServer.Name;
             ServerOnline.Content = selectedServer.Online;
@@ -46,15 +41,14 @@ namespace RedHouseLauncher.UI.Views.Components
 
         #region Нажатие кнопки играть
 
-        internal async void StartGame(object sender, MouseButtonEventArgs e)
+        internal async void StartGame(object? sender, MouseButtonEventArgs? e)
         {
-            ServerListItemModel selectedServer = (ServerListItemModel)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
-
-            if (selectedServer == null)
+            if (MainWindow.MainWindowStatic == null)
             {
-                MessageBox.Show("Выберите сервер.");
                 return;
             }
+
+            ServerListItemModel selectedServer = (ServerListItemModel)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
 
             if (GameChecker.IsChecking)
             {
@@ -67,16 +61,22 @@ namespace RedHouseLauncher.UI.Views.Components
                 return;
             }
 
-            SkyMPSettings skyMPSettings = await SkyMPSettings.Load();
+            SkyMpSettings? skyMpSettings = await SkyMpSettings.Load();
 
-            skyMPSettings.ServerIp = selectedServer.Ip;
-            skyMPSettings.ServerPort = selectedServer.Port;
+            if (skyMpSettings == null)
+            {
+                MessageBox.Show("Не загружены настройки мультиплеера.");
+                return;
+            }
+
+            skyMpSettings.ServerIp = selectedServer.Ip;
+            skyMpSettings.ServerPort = selectedServer.Port;
 
             try
             {
-                object gameData = await AccountWorker.GetSession(skyMPSettings.ServerIp + ':' + skyMPSettings.ServerPort);
-                skyMPSettings.GameData = gameData;
-                await skyMPSettings.Save();
+                object? gameData = await AccountWorker.GetSession(skyMpSettings.ServerIp + ':' + skyMpSettings.ServerPort);
+                skyMpSettings.GameData = gameData;
+                await skyMpSettings.Save();
             }
             catch (Exception err)
             {
@@ -87,7 +87,7 @@ namespace RedHouseLauncher.UI.Views.Components
             try
             {
                 await ServerFilesDownloader.DownloadFiles(
-                    $"http://{skyMPSettings.ServerIp}:{skyMPSettings.ServerPort + 1}/",
+                    $"http://{skyMpSettings.ServerIp}:{skyMpSettings.ServerPort + 1}/",
                     MainWindow.MainWindowStatic.ServerListTab.Progressbar);
             }
             catch (Exception err)
@@ -139,21 +139,11 @@ namespace RedHouseLauncher.UI.Views.Components
                 Dispatcher.Invoke(() => ServerListView.Items.Add(serverListItem));
             }
 
-            if (selectedServer != null)
+            foreach (ServerListItemModel serverListItem in ServerListView.Items)
             {
-                foreach (ServerListItemModel serverListItem in ServerListView.Items)
+                if (serverListItem.Ip == selectedServer.Ip && serverListItem.Port == selectedServer.Port)
                 {
-                    if (serverListItem.Ip == selectedServer.Ip && serverListItem.Port == selectedServer.Port)
-                    {
-                        ServerListView.SelectedItem = serverListItem;
-                    }
-                }
-            }
-            else
-            {
-                if (ServerListView.Items.Count > 0)
-                {
-                    ServerListView.SelectedIndex = 0;
+                    ServerListView.SelectedItem = serverListItem;
                 }
             }
         }
@@ -164,7 +154,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private void PlayButtonHoverEnable(object sender, MouseEventArgs e)
         {
-            object colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
+            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
 
             if (colorConverter == null)
             {

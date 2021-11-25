@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using System.Windows.Media;
 
 namespace RedHouseLauncher.UI.Images.Icons
@@ -7,7 +6,7 @@ namespace RedHouseLauncher.UI.Images.Icons
     /// <summary>
     /// Interaction logic for ModsTabIcon.xaml
     /// </summary>
-    public partial class ModsTabIcon : UserControl
+    public partial class ModsTabIcon
     {
         public bool IsClicked = false;
 
@@ -16,20 +15,20 @@ namespace RedHouseLauncher.UI.Images.Icons
             InitializeComponent();
         }
 
-        public void AddHighlightModsIcon(object sender, MouseEventArgs e)
+        public void AddHighlightModsIcon(object? sender, MouseEventArgs? e)
         {
             Path1.Fill = Brushes.White;
             Path2.Fill = Brushes.White;
         }
 
-        public void RemoveHighlightModsIcon(object sender, MouseEventArgs e)
+        public void RemoveHighlightModsIcon(object? sender, MouseEventArgs? e)
         {
             if (IsClicked)
             {
                 return;
             }
 
-            object colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
+            object? colorConverter = ColorConverter.ConvertFromString("#8C8C8C");
 
             if (colorConverter == null)
             {
