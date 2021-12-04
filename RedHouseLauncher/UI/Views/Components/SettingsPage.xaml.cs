@@ -70,7 +70,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async void SetGamePath(object? sender, TextChangedEventArgs? e)
         {
-            if (GamePathBox == null || !IsUriValid(GamePathBox.Text))
+            if (GamePathBox == null || !Directory.Exists(GamePathBox.Text))
             {
                 return;
             }

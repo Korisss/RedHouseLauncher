@@ -141,7 +141,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
             foreach (ServerListItemModel serverListItem in ServerListView.Items)
             {
-                if (serverListItem.Ip == selectedServer.Ip && serverListItem.Port == selectedServer.Port)
+                if (selectedServer != null && serverListItem.Ip == selectedServer.Ip && serverListItem.Port == selectedServer.Port)
                 {
                     ServerListView.SelectedItem = serverListItem;
                 }
