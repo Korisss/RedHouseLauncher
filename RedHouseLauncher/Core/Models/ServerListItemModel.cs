@@ -2,7 +2,6 @@
 using System.Net.Cache;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace RedHouseLauncher.Core.Models

@@ -9,7 +9,7 @@ namespace RedHouseLauncher.Core
 {
     internal class Updater
     {
-        private const short Version = 214;
+        private const short Version = 215;
         internal static async Task Update()
         {
             try
