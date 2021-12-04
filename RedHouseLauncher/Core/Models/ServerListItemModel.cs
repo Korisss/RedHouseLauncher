@@ -47,7 +47,8 @@ namespace RedHouseLauncher.Core.Models
                         Ip = servers[i].Ip
                     };
 
-                    _ = serverListItem.Ping = await serverListItem.GetPing();
+                    serverListItem.Ping = await serverListItem.GetPing();
+                    serverListItem.UpdateIcon();
 
                     serverListItems[i] = serverListItem;
                 }
@@ -108,28 +109,31 @@ namespace RedHouseLauncher.Core.Models
             return "-";
         }
 
-        private BitmapImage? GetServerIcon()
+        private BitmapImage GetServerIcon()
         {
-            try
+            if (Ping == "-")
             {
                 BitmapImage logo = new();
+
                 logo.BeginInit();
-
-                logo.UriCachePolicy = new RequestCachePolicy(RequestCacheLevel.CacheIfAvailable);
-                logo.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-
-                logo.UriSource = new Uri($"http://{Ip}:{Port + 1}/servericon.png");
-
+                logo.UriSource = new Uri(@"pack://application:,,,/UI/Images/Icons/ServerIcon.png");
                 logo.EndInit();
 
                 return logo;
             }
-            catch
-            {
-                // ignored
-            }
 
-            return null;
+            BitmapImage logo1 = new();
+            logo1.BeginInit();
+
+            logo1.UriCachePolicy = new RequestCachePolicy(RequestCacheLevel.CacheIfAvailable);
+            logo1.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+
+            logo1.UriSource = new Uri($"http://{Ip}:{Port + 1}/servericon.png");
+
+            logo1.EndInit();
+
+            return logo1;
         }
+
     }
 }

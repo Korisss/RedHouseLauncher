@@ -29,7 +29,7 @@ namespace RedHouseLauncher.UI.Views.Components
         {
             try
             {
-                ServerListItemModel selectedServer = (ServerListItemModel) ServerListView.SelectedItem;
+                ServerListItemModel selectedServer = (ServerListItemModel)ServerListView.SelectedItem;
 
                 ServerIcon.Source = selectedServer.ServerIcon;
                 ServerName.Content = selectedServer.Name;
@@ -124,6 +124,7 @@ namespace RedHouseLauncher.UI.Views.Components
                 await UpdateServerList();
                 await Task.Delay(10000);
             }
+            // ReSharper disable once FunctionNeverReturns
         }
 
         internal async Task UpdateServerList()
@@ -141,7 +142,6 @@ namespace RedHouseLauncher.UI.Views.Components
 
             foreach (ServerListItemModel serverListItem in serverListItems)
             {
-                serverListItem.UpdateIcon();
                 Dispatcher.Invoke(() => ServerListView.Items.Add(serverListItem));
             }
 
@@ -151,6 +151,11 @@ namespace RedHouseLauncher.UI.Views.Components
                 {
                     ServerListView.SelectedItem = serverListItem;
                 }
+            }
+
+            if (selectedServer == null)
+            {
+                ServerListView.SelectedItem = ServerListView.Items[0];
             }
         }
 

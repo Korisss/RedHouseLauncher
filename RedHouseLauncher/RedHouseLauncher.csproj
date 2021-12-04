@@ -18,6 +18,7 @@
   <ItemGroup>
     <None Remove="UI\Fonts\Gilroy-Medium.ttf" />
     <None Remove="UI\Images\Background.png" />
+    <None Remove="UI\Images\Icons\ServerIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
   <ItemGroup>
     <Resource Include="UI\Fonts\Gilroy-Medium.ttf" />
     <Resource Include="UI\Images\Background.png" />
+    <Resource Include="UI\Images\Icons\ServerIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
