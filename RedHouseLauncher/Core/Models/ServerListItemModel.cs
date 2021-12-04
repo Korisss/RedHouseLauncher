@@ -2,6 +2,7 @@
 using System.Net.Cache;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace RedHouseLauncher.Core.Models
@@ -46,7 +47,7 @@ namespace RedHouseLauncher.Core.Models
                         Ip = servers[i].Ip
                     };
 
-                    serverListItem.Ping = await serverListItem.GetPing();
+                    _ = serverListItem.Ping = await serverListItem.GetPing();
 
                     serverListItems[i] = serverListItem;
                 }
@@ -81,6 +82,8 @@ namespace RedHouseLauncher.Core.Models
             return desc ?? "Не удалось получить описание";
         }
 
+        static Ping ping = new();
+
         private async Task<string> GetPing()
         {
             if (Ip == null)
@@ -90,8 +93,7 @@ namespace RedHouseLauncher.Core.Models
 
             try
             {
-                Ping ping = new();
-                PingReply reply = await ping.SendPingAsync(Ip);
+                PingReply reply = await ping.SendPingAsync(Ip, 200);
 
                 if (reply.Status == IPStatus.Success)
                 {
@@ -114,6 +116,7 @@ namespace RedHouseLauncher.Core.Models
                 logo.BeginInit();
 
                 logo.UriCachePolicy = new RequestCachePolicy(RequestCacheLevel.CacheIfAvailable);
+                logo.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
 
                 logo.UriSource = new Uri($"http://{Ip}:{Port + 1}/servericon.png");
 

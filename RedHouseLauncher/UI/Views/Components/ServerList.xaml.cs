@@ -27,14 +27,21 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async void SelectServer(object sender, SelectionChangedEventArgs e)
         {
-            ServerListItemModel selectedServer = (ServerListItemModel)ServerListView.SelectedItem;
+            try
+            {
+                ServerListItemModel selectedServer = (ServerListItemModel) ServerListView.SelectedItem;
 
-            ServerIcon.Source = selectedServer.ServerIcon;
-            ServerName.Content = selectedServer.Name;
-            ServerOnline.Content = selectedServer.Online;
+                ServerIcon.Source = selectedServer.ServerIcon;
+                ServerName.Content = selectedServer.Name;
+                ServerOnline.Content = selectedServer.Online;
 
-            ServerDescription.Text =
-                await selectedServer.GetDescription();
+                ServerDescription.Text =
+                    await selectedServer.GetDescription();
+            }
+            catch
+            {
+                //ignore
+            }
         }
 
         #endregion
@@ -112,7 +119,6 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async Task UpdateServerListEvery10Seconds()
         {
-            await Task.Delay(400);
             while (true)
             {
                 await UpdateServerList();

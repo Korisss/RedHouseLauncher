@@ -70,13 +70,21 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async void SetGamePath(object? sender, TextChangedEventArgs? e)
         {
-            if (GamePathBox == null || !Directory.Exists(GamePathBox.Text))
+            try
             {
-                return;
-            }
+                if (GamePathBox == null || !Directory.Exists(GamePathBox.Text))
+                {
+                    return;
+                }
 
-            Settings.PathToSkyrim = GamePathBox.Text;
-            await Settings.Save();
+                Settings.PathToSkyrim = GamePathBox.Text;
+                await Settings.Save();
+
+            }
+            catch
+            {
+                //ignore
+            }
         }
 
         #endregion
