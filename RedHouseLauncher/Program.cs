@@ -23,9 +23,9 @@ namespace RedHouseLauncher
 
             Task.Run(async () => await Updater.Update());
 
-            #pragma warning disable CS4014
+#pragma warning disable CS4014
             Settings.Load();
-            #pragma warning restore CS4014
+#pragma warning restore CS4014
 
             App app = new();
             app.InitializeComponent();

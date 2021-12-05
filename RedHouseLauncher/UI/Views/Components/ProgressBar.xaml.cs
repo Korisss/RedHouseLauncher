@@ -102,9 +102,9 @@ namespace RedHouseLauncher.UI.Views.Components
                 });
 
                 // TODO: Перетащить на HttpClient при возможности
-                #pragma warning disable SYSLIB0014 CS0618
+#pragma warning disable SYSLIB0014 CS0618
                 using (WebClient client = new())
-                #pragma warning restore SYSLIB0014 CS0618
+#pragma warning restore SYSLIB0014 CS0618
                 {
                     client.DownloadFileCompleted += (_, _) =>
                         Dispatcher.Invoke(() => Visibility = Visibility.Hidden);

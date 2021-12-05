@@ -47,20 +47,20 @@ namespace RedHouseLauncher.UI.Views
 
         private async void CheckBinds(object sender, KeyEventArgs e)
         {
-            if (ServerListTab is not {Visibility: Visibility.Visible})
+            if (ServerListTab is not { Visibility: Visibility.Visible })
             {
                 return;
             }
 
             switch (e)
             {
-                case {Key: Key.Enter}:
+                case { Key: Key.Enter }:
                     ServerListTab.StartGame(sender: null, e: null);
                     break;
-                case {Key: Key.F5}:
+                case { Key: Key.F5 }:
                     await ServerListTab.UpdateServerList();
                     break;
-                case {Key: Key.R} when Keyboard.IsKeyDown(Key.LeftCtrl):
+                case { Key: Key.R } when Keyboard.IsKeyDown(Key.LeftCtrl):
                     await ServerListTab.UpdateServerList();
                     break;
             }

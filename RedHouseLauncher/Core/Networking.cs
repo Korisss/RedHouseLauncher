@@ -27,33 +27,33 @@ namespace RedHouseLauncher.Core
             switch (method)
             {
                 case "GET":
-                {
-                    using HttpResponseMessage response = await httpClient.GetAsync(url);
-                    response.EnsureSuccessStatusCode();
+                    {
+                        using HttpResponseMessage response = await httpClient.GetAsync(url);
+                        response.EnsureSuccessStatusCode();
 
-                    await using Stream responseStream = await response.Content.ReadAsStreamAsync();
+                        await using Stream responseStream = await response.Content.ReadAsStreamAsync();
 
-                    using StreamReader streamReader = new(responseStream);
-                    string result = await streamReader.ReadToEndAsync();
+                        using StreamReader streamReader = new(responseStream);
+                        string result = await streamReader.ReadToEndAsync();
 
-                    return result;
-                }
+                        return result;
+                    }
                 case "POST":
-                {
-                    data ??= "";
+                    {
+                        data ??= "";
 
-                    using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
+                        using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
 
-                    using HttpResponseMessage response = await httpClient.PostAsync(url, content);
-                    response.EnsureSuccessStatusCode();
+                        using HttpResponseMessage response = await httpClient.PostAsync(url, content);
+                        response.EnsureSuccessStatusCode();
 
-                    await using Stream responseStream = await response.Content.ReadAsStreamAsync();
+                        await using Stream responseStream = await response.Content.ReadAsStreamAsync();
 
-                    using StreamReader streamReader = new(responseStream);
-                    string result = await streamReader.ReadToEndAsync();
+                        using StreamReader streamReader = new(responseStream);
+                        string result = await streamReader.ReadToEndAsync();
 
-                    return result;
-                }
+                        return result;
+                    }
                 default:
                     return null;
             }
