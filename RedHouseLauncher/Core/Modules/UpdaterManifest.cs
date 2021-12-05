@@ -9,7 +9,7 @@ namespace RedHouseLauncher.Core.Modules
 {
     internal class UpdaterManifest
     {
-        internal static List<string> EspsToEnable = new List<string>();
+        internal static List<string> EspsToEnable = new();
 
         internal UpdaterManifest()
         {
@@ -68,7 +68,7 @@ namespace RedHouseLauncher.Core.Modules
                     {
                         if (IsEsp(file) && !EspsToEnable.Contains(file))
                         {
-                            EspsToEnable.Add(file.Substring(5));
+                            EspsToEnable.Add(file[5..]);
                         }
                     }
 

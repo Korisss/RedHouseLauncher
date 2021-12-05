@@ -47,20 +47,20 @@ namespace RedHouseLauncher.UI.Views
 
         private async void CheckBinds(object sender, KeyEventArgs e)
         {
-            if (ServerListTab == null || ServerListTab.Visibility != Visibility.Visible)
+            if (ServerListTab is not {Visibility: Visibility.Visible})
             {
                 return;
             }
 
-            switch (e.Key)
+            switch (e)
             {
-                case Key.Enter:
+                case {Key: Key.Enter}:
                     ServerListTab.StartGame(sender: null, e: null);
                     break;
-                case Key.F5:
+                case {Key: Key.F5}:
                     await ServerListTab.UpdateServerList();
                     break;
-                case Key.R when Keyboard.IsKeyDown(Key.LeftCtrl):
+                case {Key: Key.R} when Keyboard.IsKeyDown(Key.LeftCtrl):
                     await ServerListTab.UpdateServerList();
                     break;
             }
@@ -117,7 +117,7 @@ namespace RedHouseLauncher.UI.Views
                 return;
             }
 
-            SolidColorBrush unselectedColor = new SolidColorBrush((Color)colorConverter);
+            SolidColorBrush unselectedColor = new((Color)colorConverter);
 
             ServerListTab.Visibility = Visibility.Hidden;
             MainTabLine.Visibility = Visibility.Hidden;
@@ -182,7 +182,7 @@ namespace RedHouseLauncher.UI.Views
 
             await Settings.Save();
 
-            AuthWindow login = new AuthWindow();
+            AuthWindow login = new();
 
             Close();
             login.Show();

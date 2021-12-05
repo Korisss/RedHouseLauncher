@@ -14,7 +14,7 @@ namespace RedHouseLauncher.Core
             return await RequestAsync(httpClient, url, method, data, auth);
         }
 
-        internal static async Task<string?> RequestAsync(HttpClient httpClient, string url, string method = "GET", string? data = null, bool auth = false)
+        private static async Task<string?> RequestAsync(HttpClient httpClient, string url, string method = "GET", string? data = null, bool auth = false)
         {
             httpClient.Timeout = TimeSpan.FromSeconds(5);
             httpClient.BaseAddress = new Uri(url);
@@ -24,39 +24,39 @@ namespace RedHouseLauncher.Core
                 httpClient.DefaultRequestHeaders.Add("Authorization", Settings.Settings.UserToken);
             }
 
-            if (method == "GET")
+            switch (method)
             {
-                using HttpResponseMessage response = await httpClient.GetAsync(url);
-                response.EnsureSuccessStatusCode();
-
-                using Stream responseStream = await response.Content.ReadAsStreamAsync();
-
-                using StreamReader streamReader = new(responseStream);
-                string result = await streamReader.ReadToEndAsync();
-
-                return result;
-            }
-            else if (method == "POST")
-            {
-                if (data == null)
+                case "GET":
                 {
-                    data = "";
+                    using HttpResponseMessage response = await httpClient.GetAsync(url);
+                    response.EnsureSuccessStatusCode();
+
+                    await using Stream responseStream = await response.Content.ReadAsStreamAsync();
+
+                    using StreamReader streamReader = new(responseStream);
+                    string result = await streamReader.ReadToEndAsync();
+
+                    return result;
                 }
+                case "POST":
+                {
+                    data ??= "";
 
-                using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
+                    using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
 
-                using HttpResponseMessage response = await httpClient.PostAsync(url, content);
-                response.EnsureSuccessStatusCode();
+                    using HttpResponseMessage response = await httpClient.PostAsync(url, content);
+                    response.EnsureSuccessStatusCode();
 
-                using Stream responseStream = await response.Content.ReadAsStreamAsync();
+                    await using Stream responseStream = await response.Content.ReadAsStreamAsync();
 
-                using StreamReader streamReader = new(responseStream);
-                string result = await streamReader.ReadToEndAsync();
+                    using StreamReader streamReader = new(responseStream);
+                    string result = await streamReader.ReadToEndAsync();
 
-                return result;
+                    return result;
+                }
+                default:
+                    return null;
             }
-
-            return null;
         }
     }
 }

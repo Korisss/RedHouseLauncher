@@ -22,7 +22,10 @@ namespace RedHouseLauncher
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             Task.Run(async () => await Updater.Update());
+
+            #pragma warning disable CS4014
             Settings.Load();
+            #pragma warning restore CS4014
 
             App app = new();
             app.InitializeComponent();

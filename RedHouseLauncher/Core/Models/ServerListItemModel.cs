@@ -21,13 +21,13 @@ namespace RedHouseLauncher.Core.Models
         }
 
         public BitmapImage? ServerIcon { get; private set; }
-        public string? Name { get; private set; }
-        public string? Online { get; private set; }
+        public string? Name { get; private init; }
+        public string? Online { get; private init; }
         public string? Setting { get; }
         public string? Lang { get; }
         public string? Ping { get; set; }
-        internal string? Ip { get; private set; }
-        internal short Port { get; private set; }
+        internal string? Ip { get; private init; }
+        internal short Port { get; private init; }
 
         internal static async Task<ServerListItemModel[]> GetServerListItemsAsync()
         {
@@ -56,7 +56,7 @@ namespace RedHouseLauncher.Core.Models
             }
             catch
             {
-                // Разобраться с ошибкой при верстке
+                // TODO: Разобраться с ошибкой при верстке
                 return Array.Empty<ServerListItemModel>();
             }
         }

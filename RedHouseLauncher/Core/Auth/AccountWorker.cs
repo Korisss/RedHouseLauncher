@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.Auth
 {
-    internal class AccountWorker
+    internal static class AccountWorker
     {
         private static readonly string ApiUri = Settings.Settings.MasterServer ?? Config.DefaultMaster;
 
@@ -14,24 +14,14 @@ namespace RedHouseLauncher.Core.Auth
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users", "POST", JsonConvert.SerializeObject(registerModel));
 
-            if (response == null)
-            {
-                return null;
-            }
-
-            return JsonConvert.DeserializeObject<RegisterModelResponse>(response);
+            return response == null ? null : JsonConvert.DeserializeObject<RegisterModelResponse>(response);
         }
 
         internal static async Task<LoginModelResponse?> Login(LoginModelRequest model)
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users/login", "POST", JsonConvert.SerializeObject(model));
 
-            if (response == null)
-            {
-                return null;
-            }
-
-            return JsonConvert.DeserializeObject<LoginModelResponse>(response);
+            return response == null ? null : JsonConvert.DeserializeObject<LoginModelResponse>(response);
         }
 
         internal static async Task<string?> GetLogin()
@@ -51,12 +41,7 @@ namespace RedHouseLauncher.Core.Auth
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users/{Settings.Settings.UserId}/play/{address}", "POST", null, true);
 
-            if (response == null)
-            {
-                return null;
-            }
-
-            return JsonConvert.DeserializeObject(response);
+            return response == null ? null : JsonConvert.DeserializeObject(response);
         }
 
         internal static async Task ResetPassword(ResetPasswordModel resetPasswordModelRequest)

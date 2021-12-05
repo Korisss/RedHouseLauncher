@@ -2,7 +2,7 @@
 
 namespace RedHouseLauncher.Core
 {
-    internal class Hash
+    internal static class Hash
     {
         internal static int Crc32(byte[] buffer)
         {

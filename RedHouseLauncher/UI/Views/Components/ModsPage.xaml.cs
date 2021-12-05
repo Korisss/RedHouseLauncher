@@ -122,7 +122,7 @@ namespace RedHouseLauncher.UI.Views.Components
                 IsInstalled = isInstalled;
             }
 
-            public bool IsInstalled { get; set; }
+            public bool IsInstalled { get; }
         }
     }
 }

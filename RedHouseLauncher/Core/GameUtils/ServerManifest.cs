@@ -22,12 +22,7 @@ namespace RedHouseLauncher.Core.GameUtils
             string manifestAddress = address + "manifest.json";
             string? manifest = await Networking.RequestAsync(manifestAddress);
 
-            if (manifest == null)
-            {
-                return null;
-            }
-
-            return JsonConvert.DeserializeObject<ServerManifest>(manifest);
+            return manifest == null ? null : JsonConvert.DeserializeObject<ServerManifest>(manifest);
         }
     }
     internal class ServerManifestMod

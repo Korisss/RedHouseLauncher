@@ -75,8 +75,6 @@ namespace RedHouseLauncher.Core.GameUtils
 
             List<string> plugins = new();
 
-            string pluginsFile = "";
-
             foreach (string esp in serverManifest.LoadOrder)
             {
                 if (IgnoredFiles.Contains(esp) || plugins.Contains(esp))
@@ -87,23 +85,14 @@ namespace RedHouseLauncher.Core.GameUtils
                 plugins.Add(esp);
             }
 
-            foreach (string esp in UpdaterManifest.EspsToEnable)
+            foreach (string esp in UpdaterManifest.EspsToEnable.Where(esp => !IgnoredFiles.Contains(esp) && !plugins.Contains(esp)))
             {
-                if (IgnoredFiles.Contains(esp) || plugins.Contains(esp))
-                {
-                    continue;
-                }
-
                 plugins.Add(esp);
             }
 
-            foreach (string esp in plugins)
-            {
-                pluginsFile += $"*{esp}\n";
+            string pluginsFile = plugins.Aggregate("", (current, esp) => current + $"*{esp}\n");
 
-            }
-
-            File.WriteAllText(skyrimPluginsPath, pluginsFile);
+            await File.WriteAllTextAsync(skyrimPluginsPath, pluginsFile);
         }
     }
 }

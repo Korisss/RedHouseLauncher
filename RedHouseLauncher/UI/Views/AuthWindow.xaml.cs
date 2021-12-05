@@ -18,7 +18,7 @@ namespace RedHouseLauncher.UI.Views
     {
         public AuthWindow()
         {
-            if (Settings.UserId < 0 || Settings.UserToken == "" || Settings.UserToken == null)
+            if (Settings.UserId < 0 || Settings.UserToken is "" or null)
             {
                 InitializeComponent();
                 return;
@@ -59,7 +59,7 @@ namespace RedHouseLauncher.UI.Views
                 LoginButton.IsEnabled = false;
                 RegisterButton.IsEnabled = false;
 
-                LoginModelRequest loginModelRequest = new LoginModelRequest(email, password);
+                LoginModelRequest loginModelRequest = new(email, password);
 
                 try
                 {
@@ -98,14 +98,14 @@ namespace RedHouseLauncher.UI.Views
                         MessageBox.Show("Неверный пароль, либо аккаунт не зарегистрирован.");
                     }
                 }
-
-                LoginButton.IsEnabled = true;
-                RegisterButton.IsEnabled = true;
             }
             catch (Exception err)
             {
                 MessageBox.Show($"Произошла ошибка во время входа:\n\n{err}");
             }
+
+            LoginButton.IsEnabled = true;
+            RegisterButton.IsEnabled = true;
         }
 
         #endregion
@@ -118,7 +118,7 @@ namespace RedHouseLauncher.UI.Views
             {
                 #region Проверка ника
 
-                if (NicknameTextBox.Text == "" || NicknameTextBox.Text == "Имя")
+                if (NicknameTextBox.Text is "" or "Имя")
                 {
                     MessageBox.Show("Введите имя.");
                     return;
@@ -176,7 +176,7 @@ namespace RedHouseLauncher.UI.Views
 
                 #region Запрос регистрации
 
-                RegisterModelRequest registerModelRequest = new RegisterModelRequest(NicknameTextBox.Text, RegisterEmailTextBox.Text, RegisterPasswordTextBoxHidden1.Password);
+                RegisterModelRequest registerModelRequest = new(NicknameTextBox.Text, RegisterEmailTextBox.Text, RegisterPasswordTextBoxHidden1.Password);
 
                 try
                 {
@@ -217,24 +217,24 @@ namespace RedHouseLauncher.UI.Views
                 BackToLogin(sender, e);
 
                 #endregion
-
-                #region Включение всех кнопок
-
-                RegisterRegisterButton.IsEnabled = true;
-                BackToLoginButton.IsEnabled = true;
-                RegisterEmailTextBox.IsEnabled = true;
-                RegisterPasswordTextBox1.IsEnabled = true;
-                RegisterPasswordTextBox2.IsEnabled = true;
-                RegisterPasswordTextBoxHidden1.IsEnabled = true;
-                RegisterPasswordTextBoxHidden2.IsEnabled = true;
-                NicknameTextBox.IsEnabled = true;
-
-                #endregion
             }
             catch (Exception err)
             {
                 MessageBox.Show($"Произошла ошибка во время регистрации:\n\n{err}");
             }
+
+            #region Включение всех кнопок
+
+            RegisterRegisterButton.IsEnabled = true;
+            BackToLoginButton.IsEnabled = true;
+            RegisterEmailTextBox.IsEnabled = true;
+            RegisterPasswordTextBox1.IsEnabled = true;
+            RegisterPasswordTextBox2.IsEnabled = true;
+            RegisterPasswordTextBoxHidden1.IsEnabled = true;
+            RegisterPasswordTextBoxHidden2.IsEnabled = true;
+            NicknameTextBox.IsEnabled = true;
+
+            #endregion
         }
 
         #endregion

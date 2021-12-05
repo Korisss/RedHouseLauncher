@@ -66,7 +66,7 @@ namespace RedHouseLauncher.Core.Modules
 
         internal void RemoveModule(UpdaterModule module)
         {
-            LocalModule newModule = new LocalModule(module.Name, module.Version);
+            LocalModule newModule = new(module.Name, module.Version);
             if (newModule.Name == null)
             {
                 return;

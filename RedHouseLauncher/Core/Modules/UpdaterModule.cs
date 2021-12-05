@@ -87,7 +87,7 @@ namespace RedHouseLauncher.Core.Modules
 
                 foreach (byte b in sha256Result)
                 {
-                    stringBuilder.AppendFormat("{0:X2}", b);
+                    stringBuilder.Append($"{b:X2}");
                 }
 
                 string hash = stringBuilder.ToString();
@@ -179,7 +179,7 @@ namespace RedHouseLauncher.Core.Modules
 
         #region Получение List esp
 
-        internal List<string> GetEspsList()
+        internal IEnumerable<string> GetEspsList()
         {
             List<string> espsList = new();
 
