@@ -69,5 +69,12 @@ namespace RedHouseLauncher.Core.Settings
 
             await File.WriteAllTextAsync(Paths.SkyMpSettingsFilePath(), serializedSettings);
         }
+
+        internal void SaveSync()
+        {
+            string serializedSettings = JsonConvert.SerializeObject(this);
+
+            File.WriteAllText(Paths.SkyMpSettingsFilePath(), serializedSettings);
+        }
     }
 }

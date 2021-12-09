@@ -95,7 +95,7 @@ namespace RedHouseLauncher
                     object? result = JsonConvert.DeserializeObject(streamReader.ReadToEnd());
 
                     skyMpSettings.GameData = result;
-                    skyMpSettings.Save();
+                    skyMpSettings.SaveSync();
                 }
                 catch (Exception err)
                 {
