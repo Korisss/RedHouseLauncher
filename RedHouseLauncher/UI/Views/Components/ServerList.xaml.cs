@@ -29,7 +29,10 @@ namespace RedHouseLauncher.UI.Views.Components
         {
             ServerListItemModel? selectedServer = (ServerListItemModel?)ServerListView.SelectedItem;
 
-            if (selectedServer == null) return;
+            if (selectedServer == null)
+            {
+                return;
+            }
 
             ServerIcon.Source = selectedServer.ServerIcon;
             ServerName.Content = selectedServer.Name;

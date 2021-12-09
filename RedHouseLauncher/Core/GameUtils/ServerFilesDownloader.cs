@@ -10,7 +10,7 @@ namespace RedHouseLauncher.Core.GameUtils
 {
     internal static class ServerFilesDownloader
     {
-        private static readonly string[] IgnoredFiles =
+        public static readonly string[] IgnoredFiles =
         {
             "Skyrim.esm",
             "Update.esm",

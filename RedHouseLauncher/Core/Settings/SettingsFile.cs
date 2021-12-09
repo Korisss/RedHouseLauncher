@@ -33,17 +33,33 @@ namespace RedHouseLauncher.Core.Settings
         internal static async Task<SettingsFile> Load()
         {
             string settingsPath = Paths.SettingsFilePath;
-
-            if (File.Exists(settingsPath))
+            if (!File.Exists(settingsPath))
             {
-                string fileContent = await File.ReadAllTextAsync(settingsPath);
-
-                SettingsFile deserializedSettingsFile = JsonConvert.DeserializeObject<SettingsFile>(fileContent) ?? new SettingsFile();
-
-                return deserializedSettingsFile;
+                return new SettingsFile();
             }
 
-            return new SettingsFile();
+            string fileContent = await File.ReadAllTextAsync(settingsPath);
+
+            SettingsFile deserializedSettingsFile = JsonConvert.DeserializeObject<SettingsFile>(fileContent) ?? new SettingsFile();
+
+            return deserializedSettingsFile;
+
+        }
+
+        internal static SettingsFile LoadSync()
+        {
+            string settingsPath = Paths.SettingsFilePath;
+            if (!File.Exists(settingsPath))
+            {
+                return new SettingsFile();
+            }
+
+            string fileContent = File.ReadAllText(settingsPath);
+
+            SettingsFile deserializedSettingsFile = JsonConvert.DeserializeObject<SettingsFile>(fileContent) ?? new SettingsFile();
+
+            return deserializedSettingsFile;
+
         }
 
         internal async Task Save()

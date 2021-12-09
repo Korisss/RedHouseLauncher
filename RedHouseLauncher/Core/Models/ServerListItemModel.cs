@@ -82,7 +82,7 @@ namespace RedHouseLauncher.Core.Models
             return desc ?? "Не удалось получить описание";
         }
 
-        static Ping ping = new();
+        private static readonly Ping ping = new();
 
         private async Task<string> GetPing()
         {

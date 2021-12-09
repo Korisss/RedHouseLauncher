@@ -72,6 +72,17 @@ namespace RedHouseLauncher.Core.Settings
             _masterServer = settingsFile.MasterServer;
         }
 
+        internal static void LoadSync()
+        {
+            SettingsFile settingsFile = SettingsFile.LoadSync();
+
+            UserId = settingsFile.UserId;
+            UserToken = settingsFile.UserToken;
+            UserName = settingsFile.UserName;
+            _pathToSkyrim = settingsFile.PathToSkyrim;
+            _masterServer = settingsFile.MasterServer;
+        }
+
         internal static async Task Save()
         {
             SettingsFile settingsFile = new(UserId, UserToken, UserName, _pathToSkyrim, _masterServer);
