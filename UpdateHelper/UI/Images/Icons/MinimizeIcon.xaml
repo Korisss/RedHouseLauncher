@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="UpdateHelper.UI.Images.Icons.MinimizeIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="24">
+    <Grid Height="24" Width="24" Cursor="Hand" Background="Transparent" MouseEnter="AddHightlight" MouseLeave="RemoveHightlight">
+        <Rectangle Width="12" Height="1.4">
+            <Rectangle.Fill>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                            <GeometryDrawing Geometry="F1 M24,24z M0,0z M20.8855,12L3.11447,12">
+                                <GeometryDrawing.Pen>
+                                    <Pen x:Name="MinimizeBrush" Brush="#FF8C8C8C" Thickness="1.4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

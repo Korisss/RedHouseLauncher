@@ -23,8 +23,11 @@ namespace RedHouseLauncher.Core.Models
         public BitmapImage? ServerIcon { get; private set; }
         public string? Name { get; private init; }
         public string? Online { get; private init; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global MemberCanBePrivate.Global
         public string? Setting { get; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global MemberCanBePrivate.Global
         public string? Lang { get; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global MemberCanBePrivate.Global
         public string? Ping { get; set; }
         internal string? Ip { get; private init; }
         internal short Port { get; private init; }
@@ -61,7 +64,7 @@ namespace RedHouseLauncher.Core.Models
             }
         }
 
-        internal void UpdateIcon()
+        private void UpdateIcon()
         {
             ServerIcon = GetServerIcon();
         }
