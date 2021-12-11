@@ -15,20 +15,20 @@ namespace UpdateHelper
         {
             InitializeComponent();
 
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await Progressbar.DownloadFile(
-                        $"{Config.UpdaterUri}RedHouseLauncher.exe",
-                        File.ReadAllText("RHLauncher_Path.txt"));
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show($"Не удалось обновить лаунчер.\n\n{err}");
-                    Application.Current.Shutdown();
-                }
-            });
+            _ = Task.Run(async () =>
+              {
+                  try
+                  {
+                      await Progressbar.DownloadFile(
+                          $"{Config.UpdaterUri}RedHouseLauncher.exe",
+                          File.ReadAllText("RHLauncher_Path.txt"));
+                  }
+                  catch (Exception err)
+                  {
+                      MessageBox.Show($"Не удалось обновить лаунчер.\n\n{err}");
+                      Application.Current.Shutdown();
+                  }
+              });
         }
 
         #region Тулбар
