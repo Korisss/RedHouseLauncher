@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedHouseLauncher", "RedHouseLauncher\RedHouseLauncher.csproj", "{46203258-B8EB-4ACA-89EA-E5B9F1A5CA55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateHelper", "UpdateHelper\UpdateHelper.csproj", "{F93E765D-E060-48A9-887E-D3001F4E1302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateHelper", "UpdateHelper\UpdateHelper.csproj", "{F93E765D-E060-48A9-887E-D3001F4E1302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerTool", "ServerTool\ServerTool.csproj", "{D9C71BBE-24EF-4062-83BE-8E7B79B149B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F93E765D-E060-48A9-887E-D3001F4E1302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F93E765D-E060-48A9-887E-D3001F4E1302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F93E765D-E060-48A9-887E-D3001F4E1302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C71BBE-24EF-4062-83BE-8E7B79B149B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C71BBE-24EF-4062-83BE-8E7B79B149B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C71BBE-24EF-4062-83BE-8E7B79B149B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C71BBE-24EF-4062-83BE-8E7B79B149B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

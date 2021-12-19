@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ServerTool.UI.Images.Icons.ExitIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="24">
+    <Grid Cursor="Hand" Width="24" Height="24" Background="Transparent" MouseEnter="AddHighlight" MouseLeave="RemoveHighlight" MouseDown="CloseApp">
+        <Rectangle Width="12" Height="12">
+            <Rectangle.Fill>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                            <GeometryDrawing Geometry="F1 M24,24z M0,0z M18.566,6L6,18">
+                                <GeometryDrawing.Pen>
+                                    <Pen x:Name="LineBrush1" Brush="#FF8C8C8C" Thickness="1.4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                            <GeometryDrawing Geometry="F1 M24,24z M0,0z M6,6L18.566,18">
+                                <GeometryDrawing.Pen>
+                                    <Pen x:Name="LineBrush2" Brush="#FF8C8C8C" Thickness="1.4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                </GeometryDrawing.Pen>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>
