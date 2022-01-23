@@ -25,8 +25,8 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish
-    - name: Upload WebApp1 Build Artifact
+    - name: Upload RedHouseLauncher Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: WebApp1
+        name: RedHouseLauncher
         path: ./RedHouseLauncher\bin\Debug\net6.0-windows\publish
