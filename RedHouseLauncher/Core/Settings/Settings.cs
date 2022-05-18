@@ -7,7 +7,7 @@ namespace RedHouseLauncher.Core.Settings
         private static string? _pathToSkyrim;
 
         private static string? _masterServer;
-        internal static int UserId { get; set; }
+        internal static string? UserId { get; set; }
         internal static string? UserToken { get; set; }
         internal static string? UserName { get; set; }
 
@@ -69,7 +69,9 @@ namespace RedHouseLauncher.Core.Settings
             UserToken = settingsFile.UserToken;
             UserName = settingsFile.UserName;
             _pathToSkyrim = settingsFile.PathToSkyrim;
-            _masterServer = settingsFile.MasterServer;
+            // _masterServer = settingsFile.MasterServer;
+
+            _masterServer = "http://92.38.222.103:3000/api/";
         }
 
         internal static void LoadSync()
@@ -80,7 +82,9 @@ namespace RedHouseLauncher.Core.Settings
             UserToken = settingsFile.UserToken;
             UserName = settingsFile.UserName;
             _pathToSkyrim = settingsFile.PathToSkyrim;
-            _masterServer = settingsFile.MasterServer;
+            // _masterServer = settingsFile.MasterServer;
+
+            _masterServer = "http://92.38.222.103:3000/api/";
         }
 
         internal static async Task Save()

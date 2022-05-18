@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +23,7 @@ namespace RedHouseLauncher.Core
 
             if (auth)
             {
-                httpClient.DefaultRequestHeaders.Add("Authorization", Settings.Settings.UserToken);
+                httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Settings.Settings.UserToken);
             }
 
             switch (method)

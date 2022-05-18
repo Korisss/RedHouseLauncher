@@ -8,14 +8,14 @@ namespace RedHouseLauncher.Core.Settings
     {
         internal SettingsFile()
         {
-            UserId = -1;
+            UserId = "";
             UserToken = null;
             PathToSkyrim = null;
             UserName = null;
             MasterServer = Config.DefaultMaster;
         }
 
-        internal SettingsFile(int userId, string? userToken, string? userName, string? pathToSkyrim, string? masterServer)
+        internal SettingsFile(string userId, string? userToken, string? userName, string? pathToSkyrim, string? masterServer)
         {
             UserId = userId;
             UserToken = userToken;
@@ -24,7 +24,7 @@ namespace RedHouseLauncher.Core.Settings
             MasterServer = masterServer;
         }
 
-        [JsonProperty("userId")] internal int UserId { get; set; }
+        [JsonProperty("userId")] internal string UserId { get; set; }
         [JsonProperty("userToken")] internal string? UserToken { get; set; }
         [JsonProperty("userName")] internal string? UserName { get; set; }
         [JsonProperty("pathToSkyrim")] internal string? PathToSkyrim { get; set; }

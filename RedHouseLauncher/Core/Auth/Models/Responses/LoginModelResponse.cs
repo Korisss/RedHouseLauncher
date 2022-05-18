@@ -4,13 +4,13 @@ namespace RedHouseLauncher.Core.Auth.Models.Responses
 {
     internal class LoginModelResponse
     {
-        public LoginModelResponse(int id, string token)
+        public LoginModelResponse(string id, string token)
         {
             Id = id;
             Token = token;
         }
 
-        [JsonProperty("id")] internal int Id { get; set; }
+        [JsonProperty("id")] internal string Id { get; set; }
         [JsonProperty("token")] internal string Token { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using RedHouseLauncher.Core.Auth.Models.Responses;
 using RedHouseLauncher.Core.Settings;
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
@@ -18,7 +19,7 @@ namespace RedHouseLauncher.UI.Views
     {
         public AuthWindow()
         {
-            if (Settings.UserId < 0 || Settings.UserToken is "" or null)
+            if (Settings.UserId is "" or null || Settings.UserToken is "" or null)
             {
                 InitializeComponent();
                 return;
@@ -193,19 +194,20 @@ namespace RedHouseLauncher.UI.Views
 
                     MessageBox.Show("Вы были успешно зарегистрированы");
                 }
-                catch (WebException ex)
+                catch (HttpRequestException ex)
                 {
-                    if (ex.Response != null)
+                    if (ex.StatusCode == HttpStatusCode.BadRequest)
                     {
-                        if (((HttpWebResponse)ex.Response).StatusCode.ToString() == "BadRequest")
-                        {
-                            MessageBox.Show("Скорее всего данный аккаунт уже зарегистрирован");
-                        }
-                        else
-                        {
-                            MessageBox.Show(ex.Message);
-                            MessageBox.Show(((HttpWebResponse)ex.Response).StatusCode.ToString());
-                        }
+                        MessageBox.Show("Скорее всего данный аккаунт уже зарегистрирован");
+                    }
+                    else if (ex.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        MessageBox.Show("Сервер авторизации недоступен. Возможно, проблемы на стороне провайдера, но лучше напишите в техподдержку.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.StatusCode.ToString());
                     }
                 }
 
@@ -220,7 +222,7 @@ namespace RedHouseLauncher.UI.Views
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Произошла ошибка во время регистрации:\n\n{err}");
+                MessageBox.Show($"Произошла ошибка во время регистрации:\n\n{err.GetType()}");
             }
 
             #region Включение всех кнопок

@@ -1,4 +1,5 @@
 ﻿using RedHouseLauncher.Core.Auth;
+using RedHouseLauncher.Core.Auth.Models.Requests;
 using RedHouseLauncher.Core.Settings;
 using RedHouseLauncher.UI.Views.Components;
 using System.Threading.Tasks;
@@ -176,7 +177,7 @@ namespace RedHouseLauncher.UI.Views
 
         private async void Logout(object sender, MouseButtonEventArgs e)
         {
-            Settings.UserId = -1;
+            Settings.UserId = "";
             Settings.UserToken = "";
             Settings.UserName = "";
 

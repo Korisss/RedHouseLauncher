@@ -81,7 +81,7 @@ namespace RedHouseLauncher
 
                     httpClient.Timeout = TimeSpan.FromSeconds(5);
                     httpClient.BaseAddress = new Uri(url);
-                    httpClient.DefaultRequestHeaders.Add("Authorization", Settings.UserToken);
+                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer" + Settings.UserToken);
 
                     const string data = "";
 
