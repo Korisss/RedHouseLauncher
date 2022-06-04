@@ -25,7 +25,7 @@ namespace UpdateHelper
                   }
                   catch (Exception err)
                   {
-                      MessageBox.Show($"Не удалось обновить лаунчер.\n\n{err}");
+                      _ = MessageBox.Show($"Не удалось обновить лаунчер.\n\n{err}");
                       Application.Current.Shutdown();
                   }
               });

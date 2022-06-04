@@ -26,19 +26,19 @@ namespace UpdateHelper.UI.Components
 
             if (totalBytes == 0)
             {
-                Dispatcher.Invoke(() => ProgressBarLength.Width = 0);
+                _ = Dispatcher.Invoke(() => ProgressBarLength.Width = 0);
                 return;
             }
 
             double percentage = bytesIn / totalBytes * 100;
             double progressBarLength = 740 * percentage / 100;
 
-            Dispatcher.Invoke(() => ProgressBarLength.Width = progressBarLength);
+            _ = Dispatcher.Invoke(() => ProgressBarLength.Width = progressBarLength);
         }
 
         internal async Task DownloadFile(string uri, string path)
         {
-            Dispatcher.Invoke(() => ProgressBarLength.Width = 0);
+            _ = Dispatcher.Invoke(() => ProgressBarLength.Width = 0);
 
             foreach (Process process in Process.GetProcessesByName(Path.GetFileNameWithoutExtension(path)))
             {
@@ -55,7 +55,7 @@ namespace UpdateHelper.UI.Components
 
             await client.DownloadFileTaskAsync(new Uri(uri), path);
 
-            Process.Start(path);
+            _ = Process.Start(path);
 
             Dispatcher.Invoke(() => Application.Current.Shutdown());
         }

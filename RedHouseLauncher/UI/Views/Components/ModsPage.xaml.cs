@@ -1,7 +1,7 @@
-﻿using RedHouseLauncher.Core.Modules;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using RedHouseLauncher.Core.Modules;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
@@ -75,12 +75,12 @@ namespace RedHouseLauncher.UI.Views.Components
 
             foreach (ListItem moduleName in installedItems)
             {
-                ModsListView.Items.Add(moduleName);
+                _ = ModsListView.Items.Add(moduleName);
             }
 
             foreach (ListItem moduleName in notInstalledItems)
             {
-                ModsListView.Items.Add(moduleName);
+                _ = ModsListView.Items.Add(moduleName);
             }
         }
 

@@ -13,52 +13,16 @@ namespace RedHouseLauncher.Core.Settings
 
         internal static string? PathToSkyrim
         {
-            get
-            {
-                if (_pathToSkyrim == null)
-                {
-                    return null;
-                }
+            get => _pathToSkyrim == null ? null : _pathToSkyrim.EndsWith("\\") ? _pathToSkyrim : $"{_pathToSkyrim}\\";
 
-                return _pathToSkyrim.EndsWith("\\") ? _pathToSkyrim : $"{_pathToSkyrim}\\";
-            }
-
-            set
-            {
-                if (value == null)
-                {
-                    _pathToSkyrim = null;
-                }
-                else
-                {
-                    _pathToSkyrim = value.EndsWith("\\") ? value : $"{value}\\";
-                }
-            }
+            set => _pathToSkyrim = value == null ? null : value.EndsWith("\\") ? value : $"{value}\\";
         }
 
         internal static string? MasterServer
         {
-            get
-            {
-                if (_masterServer == null)
-                {
-                    return null;
-                }
+            get => _masterServer == null ? null : _masterServer.EndsWith("/") ? _masterServer : $"{_masterServer}/";
 
-                return _masterServer.EndsWith("/") ? _masterServer : $"{_masterServer}/";
-            }
-
-            set
-            {
-                if (value == null)
-                {
-                    _masterServer = null;
-                }
-                else
-                {
-                    _masterServer = value.EndsWith("/") ? value : $"{value}/";
-                }
-            }
+            set => _masterServer = value == null ? null : value.EndsWith("/") ? value : $"{value}/";
         }
 
         internal static async Task Load()

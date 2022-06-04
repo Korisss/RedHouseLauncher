@@ -1,14 +1,14 @@
-﻿using RedHouseLauncher.Core.Auth;
-using RedHouseLauncher.Core.Auth.Models.Requests;
-using RedHouseLauncher.Core.Auth.Models.Responses;
-using RedHouseLauncher.Core.Settings;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using RedHouseLauncher.Core.Auth;
+using RedHouseLauncher.Core.Auth.Models.Requests;
+using RedHouseLauncher.Core.Auth.Models.Responses;
+using RedHouseLauncher.Core.Settings;
 
 namespace RedHouseLauncher.UI.Views
 {
@@ -50,7 +50,7 @@ namespace RedHouseLauncher.UI.Views
 
                 if (!IsEmailValid(email))
                 {
-                    MessageBox.Show("Почта неправильного формата.");
+                    _ = MessageBox.Show("Почта неправильного формата.");
                     return;
                 }
 
@@ -96,13 +96,13 @@ namespace RedHouseLauncher.UI.Views
                             throw;
                         }
 
-                        MessageBox.Show("Неверный пароль, либо аккаунт не зарегистрирован.");
+                        _ = MessageBox.Show("Неверный пароль, либо аккаунт не зарегистрирован.");
                     }
                 }
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Произошла ошибка во время входа:\n\n{err}");
+                _ = MessageBox.Show($"Произошла ошибка во время входа:\n\n{err}");
             }
 
             LoginButton.IsEnabled = true;
@@ -121,13 +121,13 @@ namespace RedHouseLauncher.UI.Views
 
                 if (NicknameTextBox.Text is "" or "Имя")
                 {
-                    MessageBox.Show("Введите имя.");
+                    _ = MessageBox.Show("Введите имя.");
                     return;
                 }
 
                 if (NicknameTextBox.Text.Length < 4)
                 {
-                    MessageBox.Show("Имя должно быть длиной минимум 4 символа.");
+                    _ = MessageBox.Show("Имя должно быть длиной минимум 4 символа.");
                     return;
                 }
 
@@ -137,7 +137,7 @@ namespace RedHouseLauncher.UI.Views
 
                 if (!IsEmailValid(RegisterEmailTextBox.Text))
                 {
-                    MessageBox.Show("Почта неправильного формата.");
+                    _ = MessageBox.Show("Почта неправильного формата.");
                     return;
                 }
 
@@ -148,13 +148,13 @@ namespace RedHouseLauncher.UI.Views
                 if (RegisterPasswordTextBoxHidden1.Password.Length < 8 ||
                     RegisterPasswordTextBoxHidden2.Password.Length < 8)
                 {
-                    MessageBox.Show("Пароль должен быть длиннее 8 символов");
+                    _ = MessageBox.Show("Пароль должен быть длиннее 8 символов");
                     return;
                 }
 
                 if (RegisterPasswordTextBoxHidden1.Password != RegisterPasswordTextBoxHidden2.Password)
                 {
-                    MessageBox.Show("Пароли не совпадают.");
+                    _ = MessageBox.Show("Пароли не совпадают.");
                     return;
                 }
 
@@ -192,22 +192,22 @@ namespace RedHouseLauncher.UI.Views
 
                     await Settings.Save();
 
-                    MessageBox.Show("Вы были успешно зарегистрированы");
+                    _ = MessageBox.Show("Вы были успешно зарегистрированы");
                 }
                 catch (HttpRequestException ex)
                 {
                     if (ex.StatusCode == HttpStatusCode.BadRequest)
                     {
-                        MessageBox.Show("Скорее всего данный аккаунт уже зарегистрирован");
+                        _ = MessageBox.Show("Скорее всего данный аккаунт уже зарегистрирован");
                     }
                     else if (ex.StatusCode == HttpStatusCode.NotFound)
                     {
-                        MessageBox.Show("Сервер авторизации недоступен. Возможно, проблемы на стороне провайдера, но лучше напишите в техподдержку.");
+                        _ = MessageBox.Show("Сервер авторизации недоступен. Возможно, проблемы на стороне провайдера, но лучше напишите в техподдержку.");
                     }
                     else
                     {
-                        MessageBox.Show(ex.Message);
-                        MessageBox.Show(ex.StatusCode.ToString());
+                        _ = MessageBox.Show(ex.Message);
+                        _ = MessageBox.Show(ex.StatusCode.ToString());
                     }
                 }
 
@@ -222,7 +222,7 @@ namespace RedHouseLauncher.UI.Views
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Произошла ошибка во время регистрации:\n\n{err.GetType()}");
+                _ = MessageBox.Show($"Произошла ошибка во время регистрации:\n\n{err.GetType()}");
             }
 
             #region Включение всех кнопок
@@ -395,7 +395,7 @@ namespace RedHouseLauncher.UI.Views
             PasswordTextBox.Visibility = Visibility.Hidden;
             PasswordTextBoxHidden.Visibility = Visibility.Visible;
 
-            PasswordTextBoxHidden.Focus();
+            _ = PasswordTextBoxHidden.Focus();
         }
 
         private void PasswordTextBoxChange2(object sender, RoutedEventArgs e)
@@ -474,7 +474,7 @@ namespace RedHouseLauncher.UI.Views
             RegisterPasswordTextBox1.Visibility = Visibility.Hidden;
             RegisterPasswordTextBoxHidden1.Visibility = Visibility.Visible;
 
-            RegisterPasswordTextBoxHidden1.Focus();
+            _ = RegisterPasswordTextBoxHidden1.Focus();
         }
 
         private void Register_PasswordTextBoxChange21(object sender, RoutedEventArgs e)
@@ -493,7 +493,7 @@ namespace RedHouseLauncher.UI.Views
             RegisterPasswordTextBox2.Visibility = Visibility.Hidden;
             RegisterPasswordTextBoxHidden2.Visibility = Visibility.Visible;
 
-            RegisterPasswordTextBoxHidden2.Focus();
+            _ = RegisterPasswordTextBoxHidden2.Focus();
         }
 
         private void Register_PasswordTextBoxChange22(object sender, RoutedEventArgs e)

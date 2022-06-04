@@ -1,8 +1,8 @@
-﻿using RedHouseLauncher.Core.Settings;
-using RedHouseLauncher.UI.Views;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using RedHouseLauncher.Core.Settings;
+using RedHouseLauncher.UI.Views;
 
 namespace RedHouseLauncher.Core.GameUtils
 {
@@ -29,7 +29,7 @@ namespace RedHouseLauncher.Core.GameUtils
                 WorkingDirectory = Settings.Settings.PathToSkyrim
             };
 
-            Process.Start(startInfo);
+            _ = Process.Start(startInfo);
 
             IsGameRunning = true;
 

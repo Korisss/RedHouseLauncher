@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace RedHouseLauncher.Core.Modules
 {
@@ -55,7 +55,7 @@ namespace RedHouseLauncher.Core.Modules
 
                             if (result == DialogResult.Yes)
                             {
-                                Process.Start("https://github.com/alekcey0211/red-house-internal");
+                                _ = Process.Start("https://github.com/alekcey0211/red-house-internal");
                             }
                         }
 

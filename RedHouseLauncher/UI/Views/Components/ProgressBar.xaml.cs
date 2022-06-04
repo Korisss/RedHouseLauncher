@@ -1,11 +1,11 @@
-﻿using SharpCompress.Archives.SevenZip;
-using SharpCompress.Common;
-using SharpCompress.Readers;
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
+using SharpCompress.Archives.SevenZip;
+using SharpCompress.Common;
+using SharpCompress.Readers;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
@@ -83,7 +83,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private void SetDownloadName(string name)
         {
-            Dispatcher.Invoke(() => DownloadName.Content = name);
+            _ = Dispatcher.Invoke(() => DownloadName.Content = name);
         }
 
         internal async Task DownloadFile(string uri, string path, string name)

@@ -1,7 +1,7 @@
-﻿using RedHouseLauncher.Core.Settings;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using RedHouseLauncher.Core.Settings;
 
 namespace RedHouseLauncher.UI.Images.Icons
 {

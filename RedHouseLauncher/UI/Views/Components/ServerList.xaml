@@ -7,6 +7,18 @@
              xmlns:components="clr-namespace:RedHouseLauncher.UI.Views.Components"
              mc:Ignorable="d" 
              d:DesignHeight="687" d:DesignWidth="1264">
+    <UserControl.Resources>
+        <Style x:Key="Text">
+            <Setter Property="TextBlock.Margin" Value="5"/>
+            <Setter Property="TextBlock.FontSize" Value="14"/>
+        </Style>
+
+        <Style BasedOn="{StaticResource Text}" TargetType="TextBlock"></Style>
+
+        <Style x:Key="BoldText" BasedOn="{StaticResource Text}">
+            <Setter Property="TextBlock.FontWeight" Value="DemiBold"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="826"/>
@@ -89,7 +101,7 @@
 
             <!-- Наконец-то список серверов -->
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" x:Name="ServerListView" BorderThickness="0" IsSynchronizedWithCurrentItem="False" HorizontalContentAlignment="Stretch" Grid.Row="1" 
-                                  SelectionMode="Single" SelectionChanged="SelectServer">
+                                  SelectionMode="Single" SelectionChanged="SelectServer" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <!-- Наведение и выбор -->
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">

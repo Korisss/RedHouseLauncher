@@ -1,6 +1,6 @@
-﻿using RedHouseLauncher.Core.Modules;
+﻿using System.Threading.Tasks;
+using RedHouseLauncher.Core.Modules;
 using RedHouseLauncher.UI.Views.Components;
-using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.GameUtils
 {

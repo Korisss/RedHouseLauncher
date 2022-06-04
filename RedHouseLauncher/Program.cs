@@ -1,9 +1,4 @@
-﻿using Newtonsoft.Json;
-using RedHouseLauncher.Core;
-using RedHouseLauncher.Core.GameUtils;
-using RedHouseLauncher.Core.Modules;
-using RedHouseLauncher.Core.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -13,6 +8,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Newtonsoft.Json;
+using RedHouseLauncher.Core;
+using RedHouseLauncher.Core.GameUtils;
+using RedHouseLauncher.Core.Modules;
+using RedHouseLauncher.Core.Settings;
 
 namespace RedHouseLauncher
 {
@@ -42,13 +42,13 @@ namespace RedHouseLauncher
                 }
                 if (!argsList.Contains("--no-updates-check"))
                 {
-                    Task.Run(async () => await Updater.Update());
+                    _ = Task.Run(async () => await Updater.Update());
                 }
 
                 Settings.LoadSync();
 
                 string? ip = null;
-                ushort port = 0;
+                int port = 0;
 
                 foreach (string arg in argsList)
                 {
@@ -58,7 +58,7 @@ namespace RedHouseLauncher
                     }
                     else if (arg.StartsWith("--port="))
                     {
-                        port = Convert.ToUInt16(arg[7..]);
+                        port = Convert.ToInt32(arg[7..]);
                     }
                 }
 
@@ -66,12 +66,12 @@ namespace RedHouseLauncher
 
                 if (skyMpSettings == null)
                 {
-                    MessageBox.Show("Не загружены настройки мультиплеера.");
+                    _ = MessageBox.Show("Не загружены настройки мультиплеера.");
                     return;
                 }
 
                 skyMpSettings.ServerIp = ip;
-                skyMpSettings.ServerPort = (short)port;
+                skyMpSettings.ServerPort = port;
 
                 try
                 {
@@ -87,7 +87,7 @@ namespace RedHouseLauncher
 
                     using HttpContent content = new StringContent(data, Encoding.UTF8, "application/json");
                     using HttpResponseMessage response = httpClient.PostAsync(url, content).Result;
-                    response.EnsureSuccessStatusCode();
+                    _ = response.EnsureSuccessStatusCode();
 
                     using Stream responseStream = response.Content.ReadAsStream();
                     using StreamReader streamReader = new(responseStream);
@@ -99,7 +99,7 @@ namespace RedHouseLauncher
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show($"Ошибка во время получения сессии.\n\n{err}");
+                    _ = MessageBox.Show($"Ошибка во время получения сессии.\n\n{err}");
                     return;
                 }
 
@@ -121,7 +121,7 @@ namespace RedHouseLauncher
 
                     if (!File.Exists(skyrimPluginsPath))
                     {
-                        Directory.CreateDirectory($"{appDataLocal}\\Skyrim Special Edition\\");
+                        _ = Directory.CreateDirectory($"{appDataLocal}\\Skyrim Special Edition\\");
                     }
 
                     List<string> plugins = new();
@@ -161,7 +161,7 @@ namespace RedHouseLauncher
                     WorkingDirectory = Settings.PathToSkyrim
                 };
 
-                Process.Start(startInfo);
+                _ = Process.Start(startInfo);
 
                 return;
             }
@@ -172,13 +172,13 @@ namespace RedHouseLauncher
             }
 
 
-            Task.Run(async () => await Updater.Update());
+            _ = Task.Run(async () => await Updater.Update());
 
             Settings.LoadSync();
 
             App app = new();
             app.InitializeComponent();
-            app.Run();
+            _ = app.Run();
         }
 
         private static bool CheckAlreadyStarted()
@@ -192,7 +192,7 @@ namespace RedHouseLauncher
                 return false;
             }
 
-            MessageBox.Show("Лаунчер уже запущен.");
+            _ = MessageBox.Show("Лаунчер уже запущен.");
 
             return true;
         }

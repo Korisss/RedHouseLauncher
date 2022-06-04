@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RedHouseLauncher.Core.Settings
 {
@@ -9,14 +9,14 @@ namespace RedHouseLauncher.Core.Settings
         internal SkyMpSettings()
         {
             ServerIp = null;
-            ServerPort = -1;
+            ServerPort = 0;
             ShowMe = false;
             EnableConsole = false;
             GameData = null;
         }
 
         [JsonProperty("server-ip")] internal string? ServerIp { get; set; }
-        [JsonProperty("server-port")] internal short ServerPort { get; set; }
+        [JsonProperty("server-port")] internal int ServerPort { get; set; }
         [JsonProperty("show-me")] internal bool ShowMe { get; set; }
         [JsonProperty("enable-console")] internal bool EnableConsole { get; set; }
         [JsonProperty("gameData")] internal object? GameData { get; set; }
@@ -30,13 +30,13 @@ namespace RedHouseLauncher.Core.Settings
                 return;
             }
 
-            if (skyMpSettings.ServerIp == null && skyMpSettings.ServerPort == -1 && skyMpSettings.GameData == null)
+            if (skyMpSettings.ServerIp == null && skyMpSettings.ServerPort == 0 && skyMpSettings.GameData == null)
             {
                 return;
             }
 
             skyMpSettings.ServerIp = null;
-            skyMpSettings.ServerPort = -1;
+            skyMpSettings.ServerPort = 0;
 
             skyMpSettings.GameData = null;
             await skyMpSettings.Save();

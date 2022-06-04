@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RedHouseLauncher.Core.Auth.Models.Requests;
 using RedHouseLauncher.Core.Auth.Models.Responses;
-using System.Threading.Tasks;
 
 namespace RedHouseLauncher.Core.Auth
 {
@@ -46,7 +46,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task ResetPassword(ResetPasswordModel resetPasswordModelRequest)
         {
-            await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
+            _ = await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
         }
 
         // TODO: Add models

@@ -1,13 +1,13 @@
-﻿using RedHouseLauncher.Core.Auth;
-using RedHouseLauncher.Core.GameUtils;
-using RedHouseLauncher.Core.Models;
-using RedHouseLauncher.Core.Settings;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using RedHouseLauncher.Core.Auth;
+using RedHouseLauncher.Core.GameUtils;
+using RedHouseLauncher.Core.Models;
+using RedHouseLauncher.Core.Settings;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
@@ -27,7 +27,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private async void SelectServer(object sender, SelectionChangedEventArgs e)
         {
-            ServerListItemModel? selectedServer = (ServerListItemModel?)ServerListView.SelectedItem;
+            Server? selectedServer = (Server?)ServerListView.SelectedItem;
 
             if (selectedServer == null)
             {
@@ -38,7 +38,7 @@ namespace RedHouseLauncher.UI.Views.Components
             ServerName.Content = selectedServer.Name;
             ServerOnline.Content = selectedServer.Online;
 
-            ServerDescription.Text = await selectedServer.GetDescription();
+            ServerDescription.Text = selectedServer.Description;
         }
 
         #endregion
@@ -52,11 +52,11 @@ namespace RedHouseLauncher.UI.Views.Components
                 return;
             }
 
-            ServerListItemModel selectedServer = (ServerListItemModel)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
+            Server selectedServer = (Server)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
 
             if (GameChecker.IsChecking)
             {
-                MessageBox.Show("Идёт проверка игры, подождите.");
+                _ = MessageBox.Show("Идёт проверка игры, подождите.");
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
             if (skyMpSettings == null)
             {
-                MessageBox.Show("Не загружены настройки мультиплеера.");
+                _ = MessageBox.Show("Не загружены настройки мультиплеера.");
                 return;
             }
 
@@ -84,7 +84,7 @@ namespace RedHouseLauncher.UI.Views.Components
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Ошибка во время получения сессии.\n\n{err}");
+                _ = MessageBox.Show($"Ошибка во время получения сессии.\n\n{err}");
                 return;
             }
 
@@ -96,7 +96,7 @@ namespace RedHouseLauncher.UI.Views.Components
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Ошибка во время загрузки модификаций сервера.\n\n{err}");
+                _ = MessageBox.Show($"Ошибка во время загрузки модификаций сервера.\n\n{err}");
                 return;
             }
 
@@ -106,7 +106,7 @@ namespace RedHouseLauncher.UI.Views.Components
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Ошибка во время запуска игры.\n\n{err}");
+                _ = MessageBox.Show($"Ошибка во время запуска игры.\n\n{err}");
             }
         }
 
@@ -131,18 +131,18 @@ namespace RedHouseLauncher.UI.Views.Components
                 return;
             }
 
-            ServerListItemModel selectedServer = (ServerListItemModel)ServerListView.SelectedItem;
+            Server selectedServer = (Server)ServerListView.SelectedItem;
 
-            ServerListItemModel[] serverListItems = await ServerListItemModel.GetServerListItemsAsync();
+            Server[] serverListItems = await Server.GetServerList();
 
             Dispatcher.Invoke(() => ServerListView.Items.Clear());
 
-            foreach (ServerListItemModel serverListItem in serverListItems)
+            foreach (Server serverListItem in serverListItems)
             {
-                Dispatcher.Invoke(() => ServerListView.Items.Add(serverListItem));
+                _ = Dispatcher.Invoke(() => ServerListView.Items.Add(serverListItem));
             }
 
-            foreach (ServerListItemModel serverListItem in ServerListView.Items)
+            foreach (Server serverListItem in ServerListView.Items)
             {
                 if (selectedServer != null && serverListItem.Ip == selectedServer.Ip && serverListItem.Port == selectedServer.Port)
                 {

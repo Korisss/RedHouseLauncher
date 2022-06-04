@@ -1,10 +1,10 @@
-﻿using RedHouseLauncher.Core.Modules;
-using RedHouseLauncher.UI.Views.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using RedHouseLauncher.Core.Modules;
+using RedHouseLauncher.UI.Views.Components;
 
 namespace RedHouseLauncher.Core.GameUtils
 {
@@ -70,7 +70,7 @@ namespace RedHouseLauncher.Core.GameUtils
 
             if (!File.Exists(skyrimPluginsPath))
             {
-                Directory.CreateDirectory($"{appDataLocal}\\Skyrim Special Edition\\");
+                _ = Directory.CreateDirectory($"{appDataLocal}\\Skyrim Special Edition\\");
             }
 
             List<string> plugins = new();

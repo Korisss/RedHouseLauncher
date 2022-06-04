@@ -1,8 +1,8 @@
-﻿using RedHouseLauncher.Core.Settings;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Forms;
+using RedHouseLauncher.Core.Settings;
 using MessageBox = System.Windows.MessageBox;
 
 namespace RedHouseLauncher.UI.Views
@@ -28,7 +28,7 @@ namespace RedHouseLauncher.UI.Views
             }
             catch (Exception err)
             {
-                MessageBox.Show($"Произошла ошибка во время инициализации окна выбора пути к Скайриму:\n\n{err}");
+                _ = MessageBox.Show($"Произошла ошибка во время инициализации окна выбора пути к Скайриму:\n\n{err}");
             }
         }
 
@@ -36,7 +36,7 @@ namespace RedHouseLauncher.UI.Views
         {
             FolderBrowserDialog folderBrowserDialog = new();
 
-            folderBrowserDialog.ShowDialog();
+            _ = folderBrowserDialog.ShowDialog();
 
             if (!Path.IsPathRooted(folderBrowserDialog.SelectedPath))
             {

@@ -8,20 +8,20 @@
              d:DesignHeight="66" d:DesignWidth="826">
     <Grid Height="66" Background="Transparent">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="35"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="314"/>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="29"/>
-            <ColumnDefinition Width="67"/>
-            <ColumnDefinition Width="39"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="54"/>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="54"/>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="29"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="325*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="28*"/>
         </Grid.ColumnDefinitions>
 
         <Rectangle Margin="0,0,0,40"/>

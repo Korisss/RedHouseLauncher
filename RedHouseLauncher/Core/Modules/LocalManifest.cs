@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RedHouseLauncher.Core.Modules
 {
@@ -76,7 +76,7 @@ namespace RedHouseLauncher.Core.Modules
             {
                 if (InstalledModules[i].Name == newModule.Name)
                 {
-                    InstalledModules.Remove(InstalledModules[i]);
+                    _ = InstalledModules.Remove(InstalledModules[i]);
                 }
             }
 
@@ -102,7 +102,7 @@ namespace RedHouseLauncher.Core.Modules
                 return;
             }
 
-            EnabledModules.Remove(name);
+            _ = EnabledModules.Remove(name);
             Save();
         }
 
@@ -114,7 +114,7 @@ namespace RedHouseLauncher.Core.Modules
 
             if (!Directory.Exists(launcherFilesPath))
             {
-                Directory.CreateDirectory(launcherFilesPath);
+                _ = Directory.CreateDirectory(launcherFilesPath);
             }
 
             File.WriteAllText(manifestPath, serializedManifest);

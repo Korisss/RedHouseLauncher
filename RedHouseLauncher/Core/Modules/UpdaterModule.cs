@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using RedHouseLauncher.UI.Views.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using RedHouseLauncher.UI.Views.Components;
 
 namespace RedHouseLauncher.Core.Modules
 {
@@ -41,12 +41,8 @@ namespace RedHouseLauncher.Core.Modules
 
         private bool IsInstalled(LocalManifest localManifest)
         {
-            if (!CheckAllFilesExists() || !CheckHashes())
-            {
-                return false;
-            }
-
-            return localManifest.InstalledModules.Any(moduleToCheck => moduleToCheck.Name == Name);
+            return CheckAllFilesExists() && CheckHashes()
+&& localManifest.InstalledModules.Any(moduleToCheck => moduleToCheck.Name == Name);
         }
 
         #endregion
@@ -87,7 +83,7 @@ namespace RedHouseLauncher.Core.Modules
 
                 foreach (byte b in sha256Result)
                 {
-                    stringBuilder.Append($"{b:X2}");
+                    _ = stringBuilder.Append($"{b:X2}");
                 }
 
                 string hash = stringBuilder.ToString();

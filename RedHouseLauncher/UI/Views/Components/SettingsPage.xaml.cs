@@ -1,9 +1,9 @@
-﻿using RedHouseLauncher.Core.Settings;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
+using RedHouseLauncher.Core.Settings;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
@@ -55,9 +55,9 @@ namespace RedHouseLauncher.UI.Views.Components
 
         private void OpenGamePathDialogue(object sender, MouseButtonEventArgs e)
         {
-            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            using (FolderBrowserDialog folderBrowserDialog = new())
             {
-                folderBrowserDialog.ShowDialog();
+                _ = folderBrowserDialog.ShowDialog();
 
                 if (Path.IsPathRooted(folderBrowserDialog.SelectedPath))
                 {

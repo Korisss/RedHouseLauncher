@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace RedHouseLauncher.Core.Settings
 {
@@ -68,7 +68,7 @@ namespace RedHouseLauncher.Core.Settings
 
             if (!Directory.Exists(dirPath))
             {
-                Directory.CreateDirectory(dirPath);
+                _ = Directory.CreateDirectory(dirPath);
             }
 
             await File.WriteAllTextAsync(Paths.SettingsFilePath, JsonConvert.SerializeObject(this));

@@ -1,11 +1,10 @@
-﻿using RedHouseLauncher.Core.Auth;
-using RedHouseLauncher.Core.Auth.Models.Requests;
-using RedHouseLauncher.Core.Settings;
-using RedHouseLauncher.UI.Views.Components;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using RedHouseLauncher.Core.Auth;
+using RedHouseLauncher.Core.Settings;
+using RedHouseLauncher.UI.Views.Components;
 
 namespace RedHouseLauncher.UI.Views
 {
@@ -38,7 +37,7 @@ namespace RedHouseLauncher.UI.Views
                     // ignored
                 }
 
-                Dispatcher.Invoke(() => PlayerName.Content = nickname ?? "Error");
+                _ = Dispatcher.Invoke(() => PlayerName.Content = nickname ?? "Error");
             });
 
             #endregion

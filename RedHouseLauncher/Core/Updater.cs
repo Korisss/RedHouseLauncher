@@ -43,7 +43,7 @@ namespace RedHouseLauncher.Core
                     process.StartInfo.WorkingDirectory = tempPath;
                     process.StartInfo.FileName = downloadPath;
 
-                    process.Start();
+                    _ = process.Start();
                 }
 
                 Application.Current.Shutdown();
