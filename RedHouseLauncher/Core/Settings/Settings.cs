@@ -7,7 +7,7 @@ namespace RedHouseLauncher.Core.Settings
         private static string? _pathToSkyrim;
 
         private static string? _masterServer;
-        internal static string? UserId { get; set; }
+        internal static long UserId { get; set; }
         internal static string? UserToken { get; set; }
         internal static string? UserName { get; set; }
 

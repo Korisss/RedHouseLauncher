@@ -19,7 +19,7 @@ namespace RedHouseLauncher.UI.Views
     {
         public AuthWindow()
         {
-            if (Settings.UserId is "" or null || Settings.UserToken is "" or null)
+            if (Settings.UserId == -1 || Settings.UserToken is "" or null)
             {
                 InitializeComponent();
                 return;

@@ -177,7 +177,7 @@ namespace RedHouseLauncher.UI.Views
 
         private async void Logout(object sender, MouseButtonEventArgs e)
         {
-            Settings.UserId = "";
+            Settings.UserId = -1;
             Settings.UserToken = "";
             Settings.UserName = "";
 
