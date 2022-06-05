@@ -6,8 +6,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using RedHouseLauncher.Core.Auth;
 using RedHouseLauncher.Core.GameUtils;
-using RedHouseLauncher.Core.Models;
+using RedHouseLauncher.UI.Models;
 using RedHouseLauncher.Core.Settings;
+using RedHouseLauncher.UI.ViewModels;
 
 namespace RedHouseLauncher.UI.Views.Components
 {
@@ -19,7 +20,6 @@ namespace RedHouseLauncher.UI.Views.Components
         public ServerList()
         {
             InitializeComponent();
-
             _ = UpdateServerListEvery10Seconds();
         }
 
@@ -118,13 +118,12 @@ namespace RedHouseLauncher.UI.Views.Components
         {
             while (true)
             {
-                await UpdateServerList();
+                UpdateServerList();
                 await Task.Delay(10000);
             }
-            // ReSharper disable once FunctionNeverReturns
         }
 
-        internal async Task UpdateServerList()
+        internal void UpdateServerList()
         {
             if (GameUtils.IsGameRunning)
             {
@@ -133,14 +132,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
             Server selectedServer = (Server)ServerListView.SelectedItem;
 
-            Server[] serverListItems = await Server.GetServerList();
-
-            Dispatcher.Invoke(() => ServerListView.Items.Clear());
-
-            foreach (Server serverListItem in serverListItems)
-            {
-                _ = Dispatcher.Invoke(() => ServerListView.Items.Add(serverListItem));
-            }
+            DataContext = new ServerListViewModel();
 
             foreach (Server serverListItem in ServerListView.Items)
             {

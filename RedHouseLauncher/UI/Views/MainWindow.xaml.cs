@@ -58,10 +58,10 @@ namespace RedHouseLauncher.UI.Views
                     ServerListTab.StartGame(sender: null, e: null);
                     break;
                 case { Key: Key.F5 }:
-                    await ServerListTab.UpdateServerList();
+                    ServerListTab.UpdateServerList();
                     break;
                 case { Key: Key.R } when Keyboard.IsKeyDown(Key.LeftCtrl):
-                    await ServerListTab.UpdateServerList();
+                    ServerListTab.UpdateServerList();
                     break;
             }
         }

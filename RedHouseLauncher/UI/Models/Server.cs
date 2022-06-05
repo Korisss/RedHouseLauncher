@@ -3,8 +3,10 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using Newtonsoft.Json;
+using RedHouseLauncher.Core;
+using RedHouseLauncher.Core.Settings;
 
-namespace RedHouseLauncher.Core.Models
+namespace RedHouseLauncher.UI.Models
 {
     internal class Server
     {
@@ -20,7 +22,7 @@ namespace RedHouseLauncher.Core.Models
 
         public string Name => name;
 
-        public int Online => online;
+        public string Online => $"{online}/{maxPlayers}";
 
         public BitmapImage? ServerIcon
         {
@@ -92,7 +94,20 @@ namespace RedHouseLauncher.Core.Models
 
         internal static async Task<Server[]> GetServerList()
         {
-            string? response = await Networking.RequestAsync(Settings.Settings.MasterServer + "servers");
+            string? response = await Networking.RequestAsync(Settings.MasterServer + "servers");
+
+            if (response == null)
+            {
+                return Array.Empty<Server>();
+            }
+
+            Server[]? serverList = JsonConvert.DeserializeObject<Server[]>(response); // JArray.Parse(response).ToObject<ServerModel[]>();
+            return serverList ?? Array.Empty<Server>();
+        }
+
+        internal static Server[] GetServerListSync()
+        {
+            string? response = Networking.Request(Settings.MasterServer + "servers");
 
             if (response == null)
             {

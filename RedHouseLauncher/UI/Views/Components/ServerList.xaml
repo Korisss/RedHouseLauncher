@@ -5,20 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:icons="clr-namespace:RedHouseLauncher.UI.Images.Icons"
              xmlns:components="clr-namespace:RedHouseLauncher.UI.Views.Components"
+             xmlns:viewmodels="clr-namespace:RedHouseLauncher.UI.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ServerListViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="687" d:DesignWidth="1264">
-    <UserControl.Resources>
-        <Style x:Key="Text">
-            <Setter Property="TextBlock.Margin" Value="5"/>
-            <Setter Property="TextBlock.FontSize" Value="14"/>
-        </Style>
-
-        <Style BasedOn="{StaticResource Text}" TargetType="TextBlock"></Style>
-
-        <Style x:Key="BoldText" BasedOn="{StaticResource Text}">
-            <Setter Property="TextBlock.FontWeight" Value="DemiBold"/>
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="826"/>
@@ -101,7 +91,7 @@
 
             <!-- Наконец-то список серверов -->
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" x:Name="ServerListView" BorderThickness="0" IsSynchronizedWithCurrentItem="False" HorizontalContentAlignment="Stretch" Grid.Row="1" 
-                                  SelectionMode="Single" SelectionChanged="SelectServer" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                  SelectionMode="Single" SelectionChanged="SelectServer" ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}">
                 <!-- Наведение и выбор -->
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
