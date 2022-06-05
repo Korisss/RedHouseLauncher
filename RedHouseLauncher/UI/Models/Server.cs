@@ -10,11 +10,11 @@ namespace RedHouseLauncher.UI.Models
 {
     internal class Server
     {
-        [JsonProperty("ip")] private readonly string ip;
-        [JsonProperty("port")] private readonly int port;
-        [JsonProperty("name")] private readonly string name;
-        [JsonProperty("maxPlayers")] private readonly int maxPlayers;
-        [JsonProperty("online")] private readonly int online;
+        [JsonProperty("ip")] private readonly string ip = default!;
+        [JsonProperty("port")] private readonly int port = default!;
+        [JsonProperty("name")] private readonly string name = default!;
+        [JsonProperty("maxPlayers")] private readonly int maxPlayers = default!;
+        [JsonProperty("online")] private readonly int online = default!;
 
         public string Ip => ip;
 
@@ -48,9 +48,9 @@ namespace RedHouseLauncher.UI.Models
             }
         }
 
-        public string Setting => "Role Play";
+        public static string Setting => "Role Play";
 
-        public string Lang => "RU";
+        public static string Lang => "RU";
 
         public string Ping
         {

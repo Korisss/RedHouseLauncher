@@ -3,11 +3,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using RedHouseLauncher.Core.Auth;
 using RedHouseLauncher.Core.GameUtils;
-using RedHouseLauncher.UI.Models;
 using RedHouseLauncher.Core.Settings;
+using RedHouseLauncher.UI.Models;
 using RedHouseLauncher.UI.ViewModels;
 
 namespace RedHouseLauncher.UI.Views.Components
@@ -25,7 +24,7 @@ namespace RedHouseLauncher.UI.Views.Components
 
         #region Выбор сервера
 
-        private async void SelectServer(object sender, SelectionChangedEventArgs e)
+        private void SelectServer(object sender, SelectionChangedEventArgs e)
         {
             Server? selectedServer = (Server?)ServerListView.SelectedItem;
 
@@ -54,7 +53,10 @@ namespace RedHouseLauncher.UI.Views.Components
 
             Server? selectedServer = (Server)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
 
-            if (selectedServer == null) return;
+            if (selectedServer == null)
+            {
+                return;
+            }
 
             if (GameChecker.IsChecking)
             {
