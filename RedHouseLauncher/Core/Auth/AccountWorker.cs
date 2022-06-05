@@ -8,7 +8,7 @@ namespace RedHouseLauncher.Core.Auth
 {
     internal static class AccountWorker
     {
-        private static readonly string ApiUri = Settings.Settings.MasterServer ?? Config.DefaultMaster;
+        private static readonly string ApiUri = Settings.Settings.MasterServer;
 
         internal static async Task<RegisterResponse?> Register(RegisterRequest registerModel)
         {

@@ -16,7 +16,7 @@ namespace RedHouseLauncher.Core.Settings
             set => _pathToSkyrim = value == null ? null : value.EndsWith("\\") ? value : $"{value}\\";
         }
 
-        internal static string? MasterServer => "http://92.38.222.103:3000/api/";
+        internal static string MasterServer => "http://92.38.222.103:3000/api/";
 
         internal static async Task Load()
         {
