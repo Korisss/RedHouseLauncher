@@ -52,7 +52,9 @@ namespace RedHouseLauncher.UI.Views.Components
                 return;
             }
 
-            Server selectedServer = (Server)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
+            Server? selectedServer = (Server)MainWindow.MainWindowStatic.ServerListTab.ServerListView.SelectedItem;
+
+            if (selectedServer == null) return;
 
             if (GameChecker.IsChecking)
             {
@@ -141,32 +143,6 @@ namespace RedHouseLauncher.UI.Views.Components
                     ServerListView.SelectedItem = serverListItem;
                 }
             }
-
-            if (selectedServer == null)
-            {
-                ServerListView.SelectedItem = ServerListView.Items[0];
-            }
-        }
-
-        #endregion
-
-        #region Ховер для кнопки играть
-
-        private void PlayButtonHoverEnable(object sender, MouseEventArgs e)
-        {
-            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
-
-            if (colorConverter == null)
-            {
-                return;
-            }
-
-            PlayButton.Background = new SolidColorBrush((Color)colorConverter);
-        }
-
-        private void PlayButtonHoverDisable(object sender, MouseEventArgs e)
-        {
-            PlayButton.Background = Brushes.White;
         }
 
         #endregion

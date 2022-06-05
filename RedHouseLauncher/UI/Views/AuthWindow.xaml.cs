@@ -305,23 +305,6 @@ namespace RedHouseLauncher.UI.Views
 
         #region Ховеры
 
-        private void LoginButtonHoverEnable(object sender, MouseEventArgs e)
-        {
-            object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");
-
-            if (colorConverter == null)
-            {
-                return;
-            }
-
-            LoginButton.Background = new SolidColorBrush((Color)colorConverter);
-        }
-
-        private void LoginButtonHoverDisable(object sender, MouseEventArgs e)
-        {
-            LoginButton.Background = Brushes.White;
-        }
-
         private void RegisterButtonHoverEnable(object sender, MouseEventArgs e)
         {
             object? colorConverter = ColorConverter.ConvertFromString("#D6D6D6");

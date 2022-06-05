@@ -220,9 +220,7 @@
             </Grid>
 
             <!-- Кнопка играть -->
-            <Border x:Name="PlayButton" Grid.Row="9" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="PlayButtonHoverEnable" MouseLeave="PlayButtonHoverDisable" MouseDown="StartGame">
-                <Label Content="Играть" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Margin="146.5,14,146.5,0"/>
-            </Border>
+            <components:WhiteButton Grid.Row="9" Text="Играть" MouseDown="StartGame"/>
         </Grid>
     </Grid>
 </UserControl>

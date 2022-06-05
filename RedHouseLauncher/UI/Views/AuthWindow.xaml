@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:icons="clr-namespace:RedHouseLauncher.UI.Images.Icons"
+        xmlns:components="clr-namespace:RedHouseLauncher.UI.Views.Components"
         mc:Ignorable="d" 
         ResizeMode="NoResize" Height="680" Width="723"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -143,11 +144,8 @@
                                 </Grid>
 
                                 <!-- Кнопка войти -->
-                                <Grid Grid.Row="6">
-                                    <Border x:Name="LoginButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="LoginButtonHoverEnable" MouseLeave="LoginButtonHoverDisable" MouseDown="Login">
-                                        <Label Content="Войти" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="45" Margin="144,14,144,0"/>
-                                    </Border>
-                                </Grid>
+
+                                <components:WhiteButton x:Name="LoginButton" Grid.Row="6" Text="Войти" MouseDown="Login"/>
 
                                 <!-- Кнопка регистрации -->
                                 <Grid Grid.Row="8">
@@ -298,11 +296,8 @@
                         </Grid>
 
                         <!-- Кнопка регистрации -->
-                        <Grid Width="333" Grid.Row="12">
-                            <Border x:Name="RegisterRegisterButton" Background="White" CornerRadius="10" Cursor="Hand" MouseEnter="Register_RegisterButtonHoverEnable" MouseLeave="Register_RegisterButtonHoverDisable" MouseDown="Register">
-                                <Label Content="Регистрация" VerticalAlignment="Top" Foreground="#1F1F1F" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Width="97" Margin="118,14,118,0"/>
-                            </Border>
-                        </Grid>
+
+                        <components:WhiteButton x:Name="RegisterRegisterButton" Width="333" Grid.Row="12" MouseDown="Register" Text="Регистрация"/>
                     </Grid>
                 </Grid>
             </Grid>

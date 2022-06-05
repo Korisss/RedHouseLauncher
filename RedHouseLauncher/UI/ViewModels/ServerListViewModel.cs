@@ -18,6 +18,7 @@ namespace RedHouseLauncher.UI.ViewModels
         public ServerListViewModel()
         {
             servers = new ObservableCollection<Server>(Server.GetServerListSync());
+            selectedServer = servers[0];
         }
 
 		public Server SelectedServer
