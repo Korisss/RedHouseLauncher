@@ -91,7 +91,7 @@
 
             <!-- Наконец-то список серверов -->
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" x:Name="ServerListView" BorderThickness="0" IsSynchronizedWithCurrentItem="False" HorizontalContentAlignment="Stretch" Grid.Row="1" 
-                                  SelectionMode="Single" SelectionChanged="SelectServer" ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}">
+                                  SelectionMode="Single" SelectionChanged="SelectServer" ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <!-- Наведение и выбор -->
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
