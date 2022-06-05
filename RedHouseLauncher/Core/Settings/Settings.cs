@@ -5,8 +5,6 @@ namespace RedHouseLauncher.Core.Settings
     internal class Settings
     {
         private static string? _pathToSkyrim;
-
-        private static string? _masterServer;
         internal static long UserId { get; set; }
         internal static string? UserToken { get; set; }
         internal static string? UserName { get; set; }
@@ -18,12 +16,7 @@ namespace RedHouseLauncher.Core.Settings
             set => _pathToSkyrim = value == null ? null : value.EndsWith("\\") ? value : $"{value}\\";
         }
 
-        internal static string? MasterServer
-        {
-            get => _masterServer == null ? null : _masterServer.EndsWith("/") ? _masterServer : $"{_masterServer}/";
-
-            set => _masterServer = value == null ? null : value.EndsWith("/") ? value : $"{value}/";
-        }
+        internal static string? MasterServer => "http://92.38.222.103:3000/api/";
 
         internal static async Task Load()
         {
@@ -33,9 +26,6 @@ namespace RedHouseLauncher.Core.Settings
             UserToken = settingsFile.UserToken;
             UserName = settingsFile.UserName;
             _pathToSkyrim = settingsFile.PathToSkyrim;
-            // _masterServer = settingsFile.MasterServer;
-
-            _masterServer = "http://92.38.222.103:3000/api/";
         }
 
         internal static void LoadSync()
@@ -46,14 +36,11 @@ namespace RedHouseLauncher.Core.Settings
             UserToken = settingsFile.UserToken;
             UserName = settingsFile.UserName;
             _pathToSkyrim = settingsFile.PathToSkyrim;
-            // _masterServer = settingsFile.MasterServer;
-
-            _masterServer = "http://92.38.222.103:3000/api/";
         }
 
         internal static async Task Save()
         {
-            SettingsFile settingsFile = new(UserId, UserToken, UserName, _pathToSkyrim, _masterServer);
+            SettingsFile settingsFile = new(UserId, UserToken, UserName, _pathToSkyrim);
 
             await settingsFile.Save();
         }

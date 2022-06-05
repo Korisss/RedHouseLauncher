@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -15,41 +14,8 @@ namespace RedHouseLauncher.UI.Views.Components
         public SettingsPage()
         {
             InitializeComponent();
-
-            AuthServerBox.Text = Settings.MasterServer;
             GamePathBox.Text = Settings.PathToSkyrim;
         }
-
-        #region Сервер авторизации
-
-        private async void SetAuthServer(object sender, TextChangedEventArgs e)
-        {
-            if (AuthServerBox == null || !IsUriValid(AuthServerBox.Text))
-            {
-                return;
-            }
-
-            Settings.MasterServer = AuthServerBox.Text;
-            await Settings.Save();
-        }
-
-        #endregion
-
-        #region Доп функции, которые надо вынести
-
-        private static bool IsUriValid(string uri)
-        {
-            try
-            {
-                return new Uri(uri).IsWellFormedOriginalString();
-            }
-            catch (UriFormatException)
-            {
-                return false;
-            }
-        }
-
-        #endregion
 
         #region Путь к игре
 
@@ -81,10 +47,7 @@ namespace RedHouseLauncher.UI.Views.Components
                 await Settings.Save();
 
             }
-            catch
-            {
-                //ignore
-            }
+            catch { }
         }
 
         #endregion

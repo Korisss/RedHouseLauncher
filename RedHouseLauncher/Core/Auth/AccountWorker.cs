@@ -40,7 +40,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task ResetPassword(ResetPasswordModel resetPasswordModelRequest)
         {
-            await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
+            _ = await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
         }
 
         // TODO: Add models

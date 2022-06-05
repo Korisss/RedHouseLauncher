@@ -55,19 +55,6 @@
                     </Border>
                 </Grid>
 
-                <!-- Текст "Сервер авторизации" -->
-                <Label Grid.Row="6" Content="Сервер авторизации" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#8C8C8C" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
-
-                <!-- Текст "Сервер авторизации" -->
-                <Grid Grid.Row="8">
-                    <Border Background="#2D2D2D" CornerRadius="10">
-                        <Grid>
-                            <TextBox x:Name="AuthServerBox" TextWrapping="NoWrap" Text="Адрес" Height="19" Background="Transparent" BorderThickness="0" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy"
-                                             Padding="0" FontSize="16" Foreground="White" CaretBrush="White" Margin="15,14,0,13" TextChanged="SetAuthServer"/>
-                        </Grid>
-                    </Border>
-                </Grid>
-
 
                 <!-- Текст "При открытии игры" -->
                 <!--
