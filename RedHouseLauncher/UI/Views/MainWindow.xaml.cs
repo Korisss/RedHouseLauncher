@@ -45,7 +45,7 @@ namespace RedHouseLauncher.UI.Views
 
         #region Бинды
 
-        private async void CheckBinds(object sender, KeyEventArgs e)
+        private void CheckBinds(object sender, KeyEventArgs e)
         {
             if (ServerListTab is not { Visibility: Visibility.Visible })
             {

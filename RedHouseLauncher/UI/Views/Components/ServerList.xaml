@@ -91,7 +91,7 @@
 
             <!-- Наконец-то список серверов -->
             <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="{x:Null}" x:Name="ServerListView" BorderThickness="0" IsSynchronizedWithCurrentItem="False" HorizontalContentAlignment="Stretch" Grid.Row="1" 
-                                  SelectionMode="Single" SelectionChanged="SelectServer" ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                  SelectionMode="Single" ItemsSource="{Binding Servers}" SelectedItem="{Binding SelectedServer}" d:ItemsSource="{d:SampleData ItemCount=5}" d:SelectedIndex="0">
                 <!-- Наведение и выбор -->
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
@@ -130,7 +130,7 @@
         </Grid>
 
         <!-- Основные данные о сервере -->
-        <Grid x:Name="ServerData" Grid.Column="2">
+        <Grid x:Name="ServerData" Grid.Column="2" DataContext="{Binding SelectedServer}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="50"/>
@@ -155,7 +155,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Картинка сервера -->
-                <Image x:Name="ServerIcon" Source="../../Images/Icons/ServerIcon.png"/>
+                <Image x:Name="ServerIcon" Source="{Binding ServerIcon}"/>
 
                 <!-- Имя и кол-во игроков -->
                 <Grid Grid.Column="2">
@@ -166,7 +166,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- Имя сервера -->
-                    <Label x:Name="ServerName" Content="Сервер не выбран" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
+                    <Label x:Name="ServerName" Content="{Binding Name}" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
 
                     <!-- Количество игроков -->
                     <Grid Grid.Row="2">
@@ -186,7 +186,7 @@
                             <icons:PlayersIcon2 Grid.Column="0" Width="14" Height="14" Margin="0,3,0,2"/>
 
                             <!-- Количество-->
-                            <Label x:Name="ServerOnline" Grid.Column="2" Content="0/0" VerticalAlignment="Top" Foreground="#8C8C8C" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
+                            <Label x:Name="ServerOnline" Grid.Column="2" Content="{Binding Online}" VerticalAlignment="Top" Foreground="#8C8C8C" FontSize="16" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" Padding="0"/>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -216,7 +216,7 @@
 
             <!-- Описание сервера -->
             <Grid Grid.Row="5">
-                <TextBlock x:Name="ServerDescription" Text="Сервер не выбран" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Foreground="White" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Height="391"/>
+                <TextBlock x:Name="ServerDescription" Text="{Binding Description}" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Foreground="White" FontFamily="/RedHouseLauncher;component/UI/Fonts/#Gilroy" FontSize="16" Padding="0" Height="391"/>
             </Grid>
 
             <!-- Кнопка играть -->

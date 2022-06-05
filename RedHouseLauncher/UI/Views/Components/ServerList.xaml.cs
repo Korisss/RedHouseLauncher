@@ -22,26 +22,6 @@ namespace RedHouseLauncher.UI.Views.Components
             _ = UpdateServerListEvery10Seconds();
         }
 
-        #region Выбор сервера
-
-        private void SelectServer(object sender, SelectionChangedEventArgs e)
-        {
-            Server? selectedServer = (Server?)ServerListView.SelectedItem;
-
-            if (selectedServer == null)
-            {
-                return;
-            }
-
-            ServerIcon.Source = selectedServer.ServerIcon;
-            ServerName.Content = selectedServer.Name;
-            ServerOnline.Content = selectedServer.Online;
-
-            ServerDescription.Text = selectedServer.Description;
-        }
-
-        #endregion
-
         #region Нажатие кнопки играть
 
         internal async void StartGame(object? sender, MouseButtonEventArgs? e)
