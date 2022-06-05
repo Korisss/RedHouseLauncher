@@ -2,9 +2,9 @@
 
 namespace RedHouseLauncher.Core.Auth.Models.Requests
 {
-    internal class RegisterModelRequest
+    internal class RegisterRequest
     {
-        internal RegisterModelRequest(string name, string email, string password)
+        internal RegisterRequest(string name, string email, string password)
         {
             Name = name;
             Email = email;

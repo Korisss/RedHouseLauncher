@@ -101,7 +101,7 @@ namespace RedHouseLauncher.UI.Models
                 return Array.Empty<Server>();
             }
 
-            Server[]? serverList = JsonConvert.DeserializeObject<Server[]>(response); // JArray.Parse(response).ToObject<ServerModel[]>();
+            Server[]? serverList = JsonConvert.DeserializeObject<Server[]>(response);
             return serverList ?? Array.Empty<Server>();
         }
 
@@ -114,7 +114,7 @@ namespace RedHouseLauncher.UI.Models
                 return Array.Empty<Server>();
             }
 
-            Server[]? serverList = JsonConvert.DeserializeObject<Server[]>(response); // JArray.Parse(response).ToObject<ServerModel[]>();
+            Server[]? serverList = JsonConvert.DeserializeObject<Server[]>(response);
             return serverList ?? Array.Empty<Server>();
         }
     }

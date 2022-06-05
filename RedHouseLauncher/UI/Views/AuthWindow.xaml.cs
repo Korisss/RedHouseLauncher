@@ -60,11 +60,11 @@ namespace RedHouseLauncher.UI.Views
                 LoginButton.IsEnabled = false;
                 RegisterButton.IsEnabled = false;
 
-                LoginModelRequest loginModelRequest = new(email, password);
+                LoginRequest loginModelRequest = new(email, password);
 
                 try
                 {
-                    LoginModelResponse? loginModelResponse = await AccountWorker.Login(loginModelRequest);
+                    LoginResponse? loginModelResponse = await AccountWorker.Login(loginModelRequest);
 
                     if (loginModelResponse == null)
                     {
@@ -177,11 +177,11 @@ namespace RedHouseLauncher.UI.Views
 
                 #region Запрос регистрации
 
-                RegisterModelRequest registerModelRequest = new(NicknameTextBox.Text, RegisterEmailTextBox.Text, RegisterPasswordTextBoxHidden1.Password);
+                RegisterRequest registerModelRequest = new(NicknameTextBox.Text, RegisterEmailTextBox.Text, RegisterPasswordTextBoxHidden1.Password);
 
                 try
                 {
-                    RegisterModelResponse? registerModelResponse = await AccountWorker.Register(registerModelRequest);
+                    RegisterResponse? registerModelResponse = await AccountWorker.Register(registerModelRequest);
 
                     if (registerModelResponse == null)
                     {

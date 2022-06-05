@@ -10,31 +10,25 @@ namespace RedHouseLauncher.Core.Auth
     {
         private static readonly string ApiUri = Settings.Settings.MasterServer ?? Config.DefaultMaster;
 
-        internal static async Task<RegisterModelResponse?> Register(RegisterModelRequest registerModel)
+        internal static async Task<RegisterResponse?> Register(RegisterRequest registerModel)
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users", "POST", JsonConvert.SerializeObject(registerModel));
 
-            return response == null ? null : JsonConvert.DeserializeObject<RegisterModelResponse>(response);
+            return response == null ? null : JsonConvert.DeserializeObject<RegisterResponse>(response);
         }
 
-        internal static async Task<LoginModelResponse?> Login(LoginModelRequest model)
+        internal static async Task<LoginResponse?> Login(LoginRequest model)
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users/login", "POST", JsonConvert.SerializeObject(model));
 
-            return response == null ? null : JsonConvert.DeserializeObject<LoginModelResponse>(response);
+            return response == null ? null : JsonConvert.DeserializeObject<LoginResponse>(response);
         }
 
         internal static async Task<string?> GetLogin()
         {
             string? response = await Networking.RequestAsync($"{ApiUri}users/{Settings.Settings.UserId}", "GET", null, true);
 
-            if (response == null)
-            {
-                return null;
-            }
-
-            JObject jObject = JObject.Parse(response);
-            return jObject["name"]?.ToString();
+            return response == null ? null : JObject.Parse(response)["name"]?.ToString();
         }
 
         internal static async Task<object?> GetSession(string address)
@@ -46,7 +40,7 @@ namespace RedHouseLauncher.Core.Auth
 
         internal static async Task ResetPassword(ResetPasswordModel resetPasswordModelRequest)
         {
-            _ = await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
+            await Networking.RequestAsync($"{ApiUri}users/reset-password", "POST", JsonConvert.SerializeObject(resetPasswordModelRequest));
         }
 
         // TODO: Add models
@@ -61,15 +55,6 @@ namespace RedHouseLauncher.Core.Auth
         internal static Task VerifyToken()
         {
             return Networking.Request($"{ApiUri}secure", "GET", true);
-        }
-
-        internal class JustModelRequest
-        {
-            internal int Id { get; set; }
-        }
-
-        internal class JustModelResponse
-        {
         }
         */
     }

@@ -2,7 +2,7 @@
 
 namespace RedHouseLauncher.Core.Auth.Models.Responses
 {
-    internal class RegisterModelResponse
+    internal class RegisterResponse
     {
         [JsonProperty("id")] internal long Id { get; set; }
     }

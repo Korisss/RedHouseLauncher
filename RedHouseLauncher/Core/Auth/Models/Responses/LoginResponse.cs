@@ -2,9 +2,9 @@
 
 namespace RedHouseLauncher.Core.Auth.Models.Responses
 {
-    internal class LoginModelResponse
+    internal class LoginResponse
     {
-        public LoginModelResponse(long id, string token)
+        public LoginResponse(long id, string token)
         {
             Id = id;
             Token = token;
