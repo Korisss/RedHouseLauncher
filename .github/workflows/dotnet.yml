@@ -28,8 +28,3 @@ jobs:
         with:
           name: RedHouseLauncher
           path: ./RedHouseLauncher/bin/Debug/net6.0-windows/publish
-      - name: GH Release
-        uses: softprops/action-gh-release@v0.1.14
-        with:
-          files: ./RedHouseLauncher/bin/Debug/net6.0-windows/publish
-          tag_name: ${{ github.sha }}
